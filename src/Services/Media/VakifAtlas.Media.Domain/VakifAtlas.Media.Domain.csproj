@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Pure domain: BCL and SharedKernel only. -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\VakifAtlas.SharedKernel\VakifAtlas.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

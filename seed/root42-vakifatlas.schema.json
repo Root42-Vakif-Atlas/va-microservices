@@ -1,0 +1,379 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "root42-vakifatlas.schema.json",
+  "title": "Root42 toplu veri (sürüm 1)",
+  "description": "Külliyeler, eserler ve eser bölümleri. Sadece tr ve en dilleri, sadece mevcut şehirler. Dizilerdeki sıra, sitedeki gösterim sırasıdır. Resimler bu dosyanın yanındaki images klasöründe verilir, yükleme aktarım sırasında yapılır.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "complexes",
+    "works"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "formatVersion": {
+      "description": "Format sürümü, şimdilik her zaman 1.",
+      "const": 1
+    },
+    "complexes": {
+      "description": "Külliyeler.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/complex"
+      }
+    },
+    "works": {
+      "description": "Eserler. Bir külliyeye ait olanlar da olmayanlar da burada; külliye bağlantısı complexes[].works listesinde kurulur.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/work"
+      }
+    }
+  },
+  "definitions": {
+    "key": {
+      "description": "Dosya içindeki benzersiz anahtar: küçük harf, rakam ve tire (yesil-camii). Eserler için tr slug ile aynı olması önerilir.",
+      "type": "string",
+      "maxLength": 200,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "patternErrorMessage": "Sadece küçük harf (a-z), rakam ve tire; Türkçe karakter, büyük harf ve boşluk kullanılmaz, tire başta/sonda ya da art arda olmaz. Örnek: yesil-camii"
+    },
+    "cityCode": {
+      "description": "Şehir plaka kodu: 16 Bursa, 31 Hatay, 35 İzmir, 42 Konya, 43 Kütahya (pasif), 45 Manisa.",
+      "type": "integer",
+      "enum": [
+        16,
+        31,
+        35,
+        42,
+        43,
+        45
+      ]
+    },
+    "isActive": {
+      "description": "Sitede görünsün mü? Yazılmazsa true.",
+      "type": "boolean"
+    },
+    "optionalText200": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 200
+    },
+    "address": {
+      "description": "Açık adres (Mahalle, cadde/sokak, no, ilçe/il), çevrilmez.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "src": {
+      "description": "Resim dosyasının bu JSON dosyasına göre yolu. Resimler JSON'un yanındaki images klasöründe, klasörle birlikte (gerekirse zip olarak) verilir. İnternet adresi (https://) kabul edilmez: bağlantılar zamanla bozulabilir, bazı siteler indirmeyi engeller ve resmin kullanım hakkı belirsiz kalır.\n\nDosya ve klasör adı kuralları: sadece küçük harf (a-z), rakam (0-9) ve tire (-); klasörler / ile ayrılır. Türkçe karakter (ç ğ ı ö ş ü), büyük harf, boşluk ve alt çizgi kullanılmaz. Nedeni: Türkçe karakterli ve boşluklu adlar zip'lenirken ya da Windows, macOS ve Linux arasında taşınırken bozulabiliyor; büyük/küçük harf farkı da sorun çıkarıyor (Windows'ta Yesil.JPG ile yesil.jpg aynı dosya, sunucuda iki ayrı dosya). Örnek: 'Yeşil Camii 1.JPG' yerine 'yesil-camii-1.jpg'.\n\nUzantı küçük harfle yazılır: .jpg, .jpeg, .png veya .webp. Dosya en fazla 5 MB olabilir.\n\nÖnerilen klasör düzeni (zorunlu değil, yolun gösterdiği dosyanın var olması yeterli): eser resimleri images/works/<eser-key>/1.jpg, 2.jpg...; eser bölümü resimleri images/works/<eser-key>/bolum-1-1.jpg (1. bölümün 1. resmi); külliye resimleri images/complexes/<külliye-key>/1.jpg.",
+      "type": "string",
+      "maxLength": 300,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(/[a-z0-9]+(-[a-z0-9]+)*)*\\.(jpg|jpeg|png|webp)$",
+      "patternErrorMessage": "Resim yolu, JSON dosyasına göre göreli olmalı ve sadece küçük harf, rakam, tire ve / içermeli; uzantı .jpg, .jpeg, .png veya .webp (küçük harf). Türkçe karakter, büyük harf, boşluk ve https:// kullanılmaz. Örnek: images/works/yesil-camii/1.jpg"
+    },
+    "complex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "name",
+        "cityCode",
+        "district"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/key"
+        },
+        "name": {
+          "description": "Külliye adı. tr zorunlu; en boş bırakılırsa İngilizce sayfada Türkçesi gösterilir.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tr"
+          ],
+          "properties": {
+            "tr": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "pattern": "\\S"
+            },
+            "en": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 200
+            }
+          }
+        },
+        "cityCode": {
+          "$ref": "#/definitions/cityCode"
+        },
+        "district": {
+          "description": "İlçe adı (Yıldırım).",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "\\S"
+        },
+        "address": {
+          "$ref": "#/definitions/address"
+        },
+        "isActive": {
+          "$ref": "#/definitions/isActive"
+        },
+        "images": {
+          "description": "Külliye resimleri, en fazla 20. İlk resim kapak resmidir.",
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "src"
+            ],
+            "properties": {
+              "src": {
+                "$ref": "#/definitions/src"
+              }
+            }
+          }
+        },
+        "works": {
+          "description": "Külliyedeki eserlerin key'leri, gösterim sırasıyla. Bir eser en fazla bir külliyede olabilir ve şehri külliyenin şehriyle aynı olmalıdır.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/key"
+          }
+        },
+        "location": {
+          "$ref": "#/definitions/location"
+        }
+      }
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "cityCode",
+        "translations"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/key"
+        },
+        "cityCode": {
+          "$ref": "#/definitions/cityCode"
+        },
+        "address": {
+          "$ref": "#/definitions/address"
+        },
+        "isActive": {
+          "$ref": "#/definitions/isActive"
+        },
+        "translations": {
+          "description": "Eser metinleri. tr zorunlu (en az başlık), en isteğe bağlı; boş alanlarda sitede Türkçesi gösterilir.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tr"
+          ],
+          "properties": {
+            "tr": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/workText"
+                },
+                {
+                  "required": [
+                    "title"
+                  ],
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                }
+              ]
+            },
+            "en": {
+              "$ref": "#/definitions/workText"
+            }
+          }
+        },
+        "images": {
+          "description": "Eser resimleri, gösterim sırasıyla. İlk resim kapak resmidir.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/image"
+          }
+        },
+        "parts": {
+          "description": "Eserin bölümleri, gösterim sırasıyla.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/part"
+          }
+        },
+        "location": {
+          "$ref": "#/definitions/location"
+        }
+      }
+    },
+    "workText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "description": "URL'deki ad (yesil-camii), dilde benzersiz. Boş bırakılırsa başlıktan üretilir.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200,
+          "pattern": "^$|^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "title": {
+          "description": "Başlık.",
+          "$ref": "#/definitions/optionalText200"
+        },
+        "nickname": {
+          "description": "Lakap (İstanbul'un İncisi).",
+          "$ref": "#/definitions/optionalText200"
+        },
+        "shortDescriptionTitle": {
+          "description": "Kısa açıklama başlığı.",
+          "$ref": "#/definitions/optionalText200"
+        },
+        "shortDescription": {
+          "description": "Kısa açıklama.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        }
+      }
+    },
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "translations": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tr": {
+              "$ref": "#/definitions/partText"
+            },
+            "en": {
+              "$ref": "#/definitions/partText"
+            }
+          }
+        },
+        "images": {
+          "description": "Bölüm resimleri, gösterim sırasıyla.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/image"
+          }
+        }
+      }
+    },
+    "partText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "Bölüm başlığı.",
+          "$ref": "#/definitions/optionalText200"
+        },
+        "description": {
+          "description": "Bölüm açıklaması (uzunluk sınırı yok).",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "src"
+      ],
+      "properties": {
+        "src": {
+          "$ref": "#/definitions/src"
+        },
+        "translations": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tr": {
+              "$ref": "#/definitions/imageText"
+            },
+            "en": {
+              "$ref": "#/definitions/imageText"
+            }
+          }
+        }
+      }
+    },
+    "imageText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "altText": {
+          "description": "Alternatif metin: resimde ne görünüyor? Ekran okuyucular ve SEO için, doldurulması önerilir.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 150
+        },
+        "title": {
+          "description": "Resim başlığı.",
+          "$ref": "#/definitions/optionalText200"
+        }
+      }
+    },
+    "location": {
+      "description": "Konum (WGS 84, ondalık derece). İsteğe bağlı: verilmezse eser listede ve detayda görünür, haritada görünmez; konum sonradan panelden girilebilir. Panelde girilmiş konum dosyadaki konumla değiştirilmez. Külliyede verilirse uzak yakınlaştırmada külliyenin eserleri haritada bu noktada toplanır.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lat",
+        "lng"
+      ],
+      "properties": {
+        "lat": {
+          "description": "Enlem (Türkiye: 35.5–42.5).",
+          "type": "number",
+          "minimum": 35.5,
+          "maximum": 42.5
+        },
+        "lng": {
+          "description": "Boylam (Türkiye: 25.5–45.0).",
+          "type": "number",
+          "minimum": 25.5,
+          "maximum": 45.0
+        }
+      }
+    }
+  }
+}
