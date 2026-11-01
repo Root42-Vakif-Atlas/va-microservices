@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using VakifAtlas.ServiceDefaults.Versioning;
 using Yarp.ReverseProxy.Configuration;
 
 namespace VakifAtlas.Gateway;
@@ -20,7 +21,7 @@ public static partial class GatewayRoutes
     public const string DefaultRateLimitPolicy = "per-ip";
 
     /// <summary>API version segment that legacy unversioned paths are rewritten to.</summary>
-    public const string CurrentVersion = "v1";
+    public static readonly string CurrentVersion = ApiVersioningExtensions.CurrentSegment;
 
     /// <summary>
     /// Body limit of the VGM bulk import (<c>catalog/admin/imports/**</c>, ADR 59): the data file with its image

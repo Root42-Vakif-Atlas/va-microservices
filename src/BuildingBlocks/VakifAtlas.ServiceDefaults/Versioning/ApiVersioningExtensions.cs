@@ -12,6 +12,9 @@ public static class ApiVersioningExtensions
     /// <summary>API version 1.0.</summary>
     public static readonly ApiVersion V1 = new(1, 0);
 
+    /// <summary>Path segment of the current API version, such as <c>v1</c>; the single source for URLs built in code.</summary>
+    public static string CurrentSegment => $"v{V1.MajorVersion}";
+
     /// <summary>Registers versioning from the URL segment or the <c>api-version</c> header.</summary>
     /// <param name="services">The service collection.</param>
     public static IServiceCollection AddVakifAtlasApiVersioning(this IServiceCollection services)

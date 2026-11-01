@@ -362,5 +362,5 @@ public static class PhotoUploadExtensions
     /// <param name="options">Storage settings.</param>
     /// <param name="key">Object key.</param>
     public static string PublicUrl(this StorageOptions options, string key) =>
-        $"{options.PublicMediaBaseUrl.TrimEnd('/')}/{key}";
+        $"{options.MediaBaseUrl}{key}";
 }

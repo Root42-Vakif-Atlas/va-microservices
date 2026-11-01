@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using VakifAtlas.ServiceDefaults;
+using VakifAtlas.ServiceDefaults.Versioning;
 
 namespace VakifAtlas.Media;
 
@@ -21,7 +22,11 @@ public sealed class StorageOptions
     /// <summary>In-cluster S3 endpoint, for example <c>http://seaweedfs-s3:8333</c>.</summary>
     public string ServiceUrl { get; set; } = "http://localhost:8333";
 
-    /// <summary>Client-facing S3 address used to sign presigned URLs, since the SigV4 signature covers the host.</summary>
+    /// <summary>
+    /// Client-facing S3 address used to sign presigned URLs, since the SigV4 signature covers the host (and path), so
+    /// it cannot be derived from <see cref="PublicBaseUrl"/> or served under a path prefix: it needs its own host,
+    /// such as <c>https://vakif-atlas-s3.odx.studio</c> proxied to the S3 port.
+    /// </summary>
     public string? PublicUrl { get; set; }
 
     /// <summary>S3 access key.</summary>
@@ -36,8 +41,18 @@ public sealed class StorageOptions
     /// <summary>Creates missing buckets at startup, meant for dev and test only.</summary>
     public bool EnsureBuckets { get; set; }
 
-    /// <summary>Client base URL for public objects such as catalog images and memory photos.</summary>
-    public string PublicMediaBaseUrl { get; set; } = "http://localhost:8080/v1/media/";
+    /// <summary>
+    /// Public origin of the API gateway as clients reach it, such as <c>https://vakif-atlas.odx.studio</c> (no version
+    /// segment). Public media URLs are built from it: <c>{PublicBaseUrl}/v1/media/{key}</c>.
+    /// </summary>
+    public string PublicBaseUrl { get; set; } = "http://localhost:8080";
+
+    /// <summary>Optional full override of <see cref="MediaBaseUrl"/> (for a CDN host); normally left unset.</summary>
+    public string? PublicMediaBaseUrl { get; set; }
+
+    /// <summary>Client base URL for public objects such as catalog images and memory photos, ending with <c>/</c>.</summary>
+    public string MediaBaseUrl =>
+        $"{(PublicMediaBaseUrl ?? $"{PublicBaseUrl.TrimEnd('/')}/{ApiVersioningExtensions.CurrentSegment}/media").TrimEnd('/')}/";
 
     /// <summary>Bucket names used by the services.</summary>
     public BucketNames Buckets { get; set; } = new();
@@ -358,11 +373,23 @@ public static class ObjectStorageExtensions
     /// <param name="builder">The web application builder.</param>
     public static WebApplicationBuilder AddObjectStorage(this WebApplicationBuilder builder)
     {
-        builder.Services.Configure<StorageOptions>(builder.Configuration.GetSection(StorageOptions.Section));
+        var production = builder.Environment.IsProduction();
+        builder.Services.AddOptions<StorageOptions>().Bind(builder.Configuration.GetSection(StorageOptions.Section))
+            .Validate(o => IsPublicOrigin(o.PublicBaseUrl, production),
+                "Storage:PublicBaseUrl must be an absolute http(s) origin such as https://vakif-atlas.odx.studio (https in Production).")
+            .Validate(o => o.PublicUrl is null || IsPublicOrigin(o.PublicUrl, production),
+                "Storage:PublicUrl must be an absolute http(s) S3 address such as https://vakif-atlas-s3.odx.studio (https in Production).")
+            .Validate(o => o.PublicMediaBaseUrl is null || IsPublicOrigin(o.PublicMediaBaseUrl, production),
+                "Storage:PublicMediaBaseUrl must be an absolute http(s) URL (https in Production).")
+            .ValidateOnStart();
         builder.Services.AddSingleton<IObjectStorage, S3ObjectStorage>();
         builder.Services.AddSingleton<PhotoProcessor>();
         builder.Services.AddHostedService<BucketInitializer>();
         builder.Services.AddHealthChecks().AddCheck<StorageHealthCheck>("object-storage", HealthStatus.Degraded, tags: [ServiceDefaultsExtensions.ReadyTag]);
         return builder;
     }
+
+    private static bool IsPublicOrigin(string value, bool requireHttps) =>
+        Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https" &&
+        (!requireHttps || uri.Scheme == "https") && uri.Query.Length == 0 && uri.Fragment.Length == 0;
 }
