@@ -1,0 +1,52 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/VakifAtlas.CatalogClient/VakifAtlas.CatalogClient.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.Contracts/VakifAtlas.Contracts.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.Media/VakifAtlas.Media.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.Messaging/VakifAtlas.Messaging.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.Persistence/VakifAtlas.Persistence.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.ServiceDefaults/VakifAtlas.ServiceDefaults.csproj" />
+    <Project Path="src/BuildingBlocks/VakifAtlas.SharedKernel/VakifAtlas.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="src/Gateway/VakifAtlas.Gateway/VakifAtlas.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Assistant/">
+    <Project Path="src/Services/Assistant/VakifAtlas.Assistant.Api/VakifAtlas.Assistant.Api.csproj" />
+    <Project Path="src/Services/Assistant/VakifAtlas.Assistant.Domain/VakifAtlas.Assistant.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Catalog/">
+    <Project Path="src/Services/Catalog/VakifAtlas.Catalog.Api/VakifAtlas.Catalog.Api.csproj" />
+    <Project Path="src/Services/Catalog/VakifAtlas.Catalog.Domain/VakifAtlas.Catalog.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/CivilProtection/">
+    <Project Path="src/Services/CivilProtection/VakifAtlas.CivilProtection.Api/VakifAtlas.CivilProtection.Api.csproj" />
+    <Project Path="src/Services/CivilProtection/VakifAtlas.CivilProtection.Domain/VakifAtlas.CivilProtection.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Feedback/">
+    <Project Path="src/Services/Feedback/VakifAtlas.Feedback.Api/VakifAtlas.Feedback.Api.csproj" />
+    <Project Path="src/Services/Feedback/VakifAtlas.Feedback.Domain/VakifAtlas.Feedback.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Gamification/">
+    <Project Path="src/Services/Gamification/VakifAtlas.Gamification.Api/VakifAtlas.Gamification.Api.csproj" />
+    <Project Path="src/Services/Gamification/VakifAtlas.Gamification.Domain/VakifAtlas.Gamification.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Identity/">
+    <Project Path="src/Services/Identity/VakifAtlas.Identity.Api/VakifAtlas.Identity.Api.csproj" />
+    <Project Path="src/Services/Identity/VakifAtlas.Identity.Domain/VakifAtlas.Identity.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Media/">
+    <Project Path="src/Services/Media/VakifAtlas.Media.Api/VakifAtlas.Media.Api.csproj" />
+    <Project Path="src/Services/Media/VakifAtlas.Media.Domain/VakifAtlas.Media.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Memories/">
+    <Project Path="src/Services/Memories/VakifAtlas.Memories.Api/VakifAtlas.Memories.Api.csproj" />
+    <Project Path="src/Services/Memories/VakifAtlas.Memories.Domain/VakifAtlas.Memories.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Routes/">
+    <Project Path="src/Services/Routes/VakifAtlas.Routes.Api/VakifAtlas.Routes.Api.csproj" />
+    <Project Path="src/Services/Routes/VakifAtlas.Routes.Domain/VakifAtlas.Routes.Domain.csproj" />
+  </Folder>
+</Solution>

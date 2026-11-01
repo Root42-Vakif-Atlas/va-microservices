@@ -1,0 +1,15 @@
+# Build context'e yalnızca derleme için gerekenler girer (global.json, Directory.*.props, src/).
+**/bin/
+**/obj/
+**/*.user
+**/.DS_Store
+.git/
+.vs/
+.vscode/
+.idea/
+deploy/
+migrations/
+scripts/
+seed/
+Dockerfile
+.dockerignore

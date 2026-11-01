@@ -1,0 +1,31 @@
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    url: http://prometheus:9090
+    isDefault: true
+  - name: Tempo
+    uid: tempo
+    type: tempo
+    url: http://tempo:3200
+    jsonData:
+      # İzden aynı trace.id'li loglara (Elasticsearch) geçiş.
+      tracesToLogsV2:
+        datasourceUid: elasticsearch
+        customQuery: true
+        query: 'trace.id:"${__trace.traceId}"'
+      serviceMap: { datasourceUid: prometheus }
+  - name: Elasticsearch
+    uid: elasticsearch
+    type: elasticsearch
+    url: http://elasticsearch:9200
+    jsonData:
+      index: vakifatlas-logs-*
+      timeField: "@timestamp"
+      logMessageField: message
+      logLevelField: log.level
+      dataLinks:
+        - field: trace.id
+          datasourceUid: tempo
+          url: "$${__value.raw}"

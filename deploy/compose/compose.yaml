@@ -1,0 +1,397 @@
+#   docker compose -f deploy/compose/compose.yaml up -d --build --wait
+#   docker compose -f deploy/compose/compose.yaml --profile observability up -d
+#
+# API http://localhost:8080/v1/
+# Mailpit http://localhost:8025
+# RabbitMQ http://localhost:15672
+# S3 (SeaweedFS) http://localhost:8333
+# Grafana http://localhost:3000
+# Kibana http://localhost:5601
+name: vakif-atlas
+
+x-service: &service
+  restart: unless-stopped
+  depends_on:
+    postgres: { condition: service_healthy }
+    redis: { condition: service_healthy }
+    rabbitmq: { condition: service_healthy }
+  logging:
+    driver: json-file
+    options: { max-size: "20m", max-file: "3" }
+  labels:
+    vakifatlas.logs: "true"
+
+x-env: &env
+  ASPNETCORE_ENVIRONMENT: Docker
+  Logging__Format: ecs
+  ConnectionStrings__Redis: redis:6379,abortConnect=false
+  Messaging__Uri: amqp://vakifatlas:vakifatlas@rabbitmq:5672/
+  Auth__Authority: http://identity:8080
+  Auth__Issuer: http://localhost:8080
+  Database__MigrateOnStartup: "true"
+  Services__Catalog: http://catalog:8080/v1/
+  OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+  OTEL_METRIC_EXPORT_INTERVAL: "15000"
+
+x-storage: &storage
+  Storage__ServiceUrl: http://seaweedfs:8333
+  Storage__PublicUrl: http://localhost:8333
+  Storage__AccessKey: vakifatlas
+  Storage__SecretKey: vakifatlas-dev-secret
+  Storage__EnsureBuckets: "true"
+  Storage__PublicMediaBaseUrl: http://localhost:8080/v1/media/
+
+services:
+  postgres:
+    image: postgres:18.6
+    environment:
+      POSTGRES_USER: vakifatlas
+      POSTGRES_PASSWORD: vakifatlas
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vakifatlas -d postgres"]
+      interval: 5s
+      retries: 20
+
+  redis:
+    image: redis:8.6.7-alpine
+    command:
+      [
+        "redis-server",
+        "--appendonly",
+        "yes",
+        "--maxmemory-policy",
+        "noeviction",
+      ]
+    volumes: [redis-data:/data]
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 20
+
+  rabbitmq:
+    image: rabbitmq:4.4.0-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: vakifatlas
+      RABBITMQ_DEFAULT_PASS: vakifatlas
+    volumes: [rabbitmq-data:/var/lib/rabbitmq]
+    ports: ["5672:5672", "15672:15672"]
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      retries: 20
+
+  # Açık kaynak S3 uyumlu nesne deposu (Apache 2.0): yüklemeler, medya, PDF dışa aktarımları.
+  seaweedfs:
+    image: chrislusf/seaweedfs:4.47
+    command:
+      [
+        "server",
+        "-dir=/data",
+        "-s3",
+        "-s3.port=8333",
+        "-s3.config=/etc/seaweedfs/s3.json",
+        "-master.volumeSizeLimitMB=1024",
+        "-volume.max=0",
+      ]
+    volumes:
+      - seaweedfs-data:/data
+      - ./seaweedfs/s3.json:/etc/seaweedfs/s3.json:ro
+    ports: ["8333:8333", "9333:9333"]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q -O /dev/null http://127.0.0.1:9333/cluster/status || exit 1",
+        ]
+      interval: 5s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.31.5
+    ports: ["8025:8025", "1025:1025"]
+    environment:
+      MP_API_CORS: "*"
+
+  gateway:
+    <<: *service
+    image: vakif-atlas/gateway:dev
+    build: { context: ../.., args: { PROJECT: src/Gateway/VakifAtlas.Gateway } }
+    environment:
+      <<: *env
+      Gateway__Cors__Origins__0: "*"
+      Gateway__RateLimits__AuthPerMinute: "600"
+    depends_on:
+      identity: { condition: service_healthy }
+      catalog: { condition: service_healthy }
+      routes: { condition: service_healthy }
+      memories: { condition: service_healthy }
+      civil-protection: { condition: service_healthy }
+      gamification: { condition: service_healthy }
+      assistant: { condition: service_healthy }
+      media: { condition: service_healthy }
+      feedback: { condition: service_healthy }
+    ports: ["8080:8080"]
+
+  identity:
+    <<: *service
+    image: vakif-atlas/identity:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Identity/VakifAtlas.Identity.Api },
+      }
+    environment:
+      <<: *env
+      ConnectionStrings__Database: Host=postgres;Database=identity;Username=vakifatlas;Password=vakifatlas
+      Database__Seed: "true"
+      Identity__CodePepper: dev-only-code-pepper-change-me
+      Identity__Signing__AllowGeneratedKey: "true"
+      Identity__Seed__DemoAccounts: "true"
+      Identity__Seed__StaffPassword: "VgmPersonel2026!"
+      Identity__Seed__StaffTotpSecret: JBSWY3DPEHPK3PXPJBSWY3DPEHPK3PXP
+      Identity__Mfa__EncryptionKey: ZGV2LW9ubHktbWZhLWtleS1jaGFuZ2UtbWUtMzJieXQ=
+      Smtp__Host: mailpit
+      Smtp__Port: "1025"
+
+  catalog:
+    <<: *service
+    image: vakif-atlas/catalog:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Catalog/VakifAtlas.Catalog.Api },
+      }
+    environment:
+      <<: [*env, *storage]
+      ConnectionStrings__Database: Host=postgres;Database=catalog;Username=vakifatlas;Password=vakifatlas
+      Database__Seed: "true"
+      Catalog__Images__Mirror: "true"
+
+  routes:
+    <<: *service
+    image: vakif-atlas/routes:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Routes/VakifAtlas.Routes.Api },
+      }
+    environment:
+      <<: *env
+      ConnectionStrings__Database: Host=postgres;Database=routes;Username=vakifatlas;Password=vakifatlas
+      Routing__Engine: fixture
+
+  memories:
+    <<: *service
+    image: vakif-atlas/memories:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Memories/VakifAtlas.Memories.Api },
+      }
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+      moderation: { condition: service_healthy }
+    environment:
+      <<: [*env, *storage]
+      ConnectionStrings__Database: Host=postgres;Database=memories;Username=vakifatlas;Password=vakifatlas
+      Database__Seed: "true"
+      Memories__Moderation__Mode: ai
+      Services__Moderation: http://moderation:8080/
+
+  moderation:
+    image: vakif-atlas/moderation:dev
+    build:
+      context: ../../src/Services/Moderation
+      additional_contexts: { seed: ../../seed }
+      args: { MODEL_SOURCE: "${MODERATION_MODEL_SOURCE:-export}" }
+    restart: unless-stopped
+    ports: ["127.0.0.1:8090:8080"]
+    environment:
+      ORT_THREADS: "2"
+      MAX_CONCURRENCY: "2"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8080/health/ready')",
+        ]
+      interval: 5s
+      start_period: 30s
+      retries: 12
+    logging:
+      driver: json-file
+      options: { max-size: "20m", max-file: "3" }
+    labels:
+      vakifatlas.logs: "true"
+
+  civil-protection:
+    <<: *service
+    image: vakif-atlas/civil-protection:dev
+    build:
+      {
+        context: ../..,
+        args:
+          {
+            PROJECT: src/Services/CivilProtection/VakifAtlas.CivilProtection.Api,
+          },
+      }
+    environment:
+      <<: [*env, *storage]
+      ConnectionStrings__Database: Host=postgres;Database=civil_protection;Username=vakifatlas;Password=vakifatlas
+      Database__Seed: "true"
+      CivilProtection__DemoProgression: "false"
+      CivilProtection__SeedDemoReports: "true"
+      CivilProtection__Evidence__Enabled: "true"
+      Services__Moderation: http://moderation:8080/
+
+  gamification:
+    <<: *service
+    image: vakif-atlas/gamification:dev
+    build:
+      {
+        context: ../..,
+        args:
+          { PROJECT: src/Services/Gamification/VakifAtlas.Gamification.Api },
+      }
+    environment:
+      <<: *env
+      ConnectionStrings__Database: Host=postgres;Database=gamification;Username=vakifatlas;Password=vakifatlas
+
+  feedback:
+    <<: *service
+    image: vakif-atlas/feedback:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Feedback/VakifAtlas.Feedback.Api },
+      }
+    environment:
+      <<: *env
+      ConnectionStrings__Database: Host=postgres;Database=feedback;Username=vakifatlas;Password=vakifatlas
+
+  assistant:
+    <<: *service
+    image: vakif-atlas/assistant:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Assistant/VakifAtlas.Assistant.Api },
+      }
+    environment:
+      <<: *env
+      ConnectionStrings__Database: Host=postgres;Database=assistant;Username=vakifatlas;Password=vakifatlas
+
+  media:
+    <<: *service
+    image: vakif-atlas/media:dev
+    build:
+      {
+        context: ../..,
+        args: { PROJECT: src/Services/Media/VakifAtlas.Media.Api },
+      }
+    environment:
+      <<: [*env, *storage]
+      ConnectionStrings__Database: Host=postgres;Database=media;Username=vakifatlas;Password=vakifatlas
+
+  otel-collector:
+    profiles: [observability]
+    image: otel/opentelemetry-collector-contrib:0.162.0
+    command: ["--config=/etc/otel/config.yaml"]
+    volumes: [./otel/config.yaml:/etc/otel/config.yaml:ro]
+    ports: ["4317:4317", "4318:4318"]
+
+  prometheus:
+    profiles: [observability]
+    image: prom/prometheus:v3.13.4
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-otlp-receiver
+      - --storage.tsdb.retention.time=7d
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ../helm/vakif-atlas/files/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus-data:/prometheus
+    ports: ["9090:9090"]
+
+  tempo:
+    profiles: [observability]
+    image: grafana/tempo:2.10.9
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes: [./tempo/tempo.yaml:/etc/tempo.yaml:ro, tempo-data:/var/tempo]
+
+  grafana:
+    profiles: [observability]
+    image: grafana/grafana:13.1.8
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_FEATURE_TOGGLES_ENABLE: traceToLogs
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ../helm/vakif-atlas/files/dashboards:/var/lib/grafana/dashboards:ro
+    ports: ["3000:3000"]
+
+  elasticsearch:
+    profiles: [observability]
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.8
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+    volumes: [elasticsearch-data:/usr/share/elasticsearch/data]
+    ports: ["9200:9200"]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fs http://localhost:9200/_cluster/health || exit 1",
+        ]
+      interval: 10s
+      retries: 30
+
+  logstash:
+    profiles: [observability]
+    image: docker.elastic.co/logstash/logstash:9.4.8
+    environment:
+      LS_JAVA_OPTS: -Xms512m -Xmx512m
+      XPACK_MONITORING_ENABLED: "false"
+    volumes: [./logstash/pipeline:/usr/share/logstash/pipeline:ro]
+    depends_on: { elasticsearch: { condition: service_healthy } }
+
+  kibana:
+    profiles: [observability]
+    image: docker.elastic.co/kibana/kibana:9.4.8
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports: ["5601:5601"]
+    depends_on: { elasticsearch: { condition: service_healthy } }
+
+  filebeat:
+    profiles: [observability]
+    image: docker.elastic.co/beats/filebeat:9.4.8
+    user: root
+    command: ["filebeat", "-e", "--strict.perms=false"]
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on: [logstash]
+
+volumes:
+  postgres-data:
+  redis-data:
+  rabbitmq-data:
+  seaweedfs-data:
+  prometheus-data:
+  tempo-data:
+  elasticsearch-data:
