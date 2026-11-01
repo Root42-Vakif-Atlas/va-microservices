@@ -1,9 +1,0 @@
-{
-  "identities": [
-    {
-      "name": "vakifatlas",
-      "credentials": [{ "accessKey": "vakifatlas", "secretKey": "vakifatlas-dev-secret" }],
-      "actions": ["Admin", "Read", "List", "Tagging", "Write"]
-    }
-  ]
-}

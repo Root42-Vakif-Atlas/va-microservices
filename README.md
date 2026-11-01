@@ -237,7 +237,52 @@ Host'a yayımlanan portlar `compose.yaml`'daki `ports:` satırlarından gelir. S
 | catalog, memories, civil-protection, media | seaweedfs | `http://seaweedfs:8333` |
 | identity | mailpit | `mailpit:1025` |
 
-Bu yüzden internete yalnızca gateway'in `8080` portunu açmak yeterlidir; moderasyon gibi iç servisler dışarıdan görünmeden çalışmaya devam eder. Ancak yerel ayarlar telefona uymaz: fotoğraf yükleme adresleri `Storage__PublicUrl: http://localhost:8333`, medya adresleri `Storage__PublicMediaBaseUrl` ve token yayıncısı `Auth__Issuer` `localhost` olarak ayarlıdır; internete açarken bunlar genel adresinizle değiştirilmelidir.
+Bu yüzden internete yalnızca gateway'in `8080` portunu açmak yeterlidir; moderasyon gibi iç servisler dışarıdan görünmeden çalışmaya devam eder. Ancak yerel ayarlar telefona uymaz; internete açarken [Genel adres](#genel-adres-başka-makine-ve-telefon) bölümündeki üç adres ayarlanmalıdır.
+
+### Genel adres (başka makine ve telefon)
+
+`deploy/compose/.env` dosyasına (git'e girmez) yazın; yazılmayanlar `localhost` kalır:
+
+```bash
+PUBLIC_BASE_URL=https://vakif-atlas.odx.studio      # gateway → medya adresleri {köken}/v1/media/…
+PUBLIC_S3_URL=https://vakif-atlas-s3.odx.studio     # SeaweedFS S3 → fotoğraf yükleme (ön imzalı PUT)
+```
+
+| Ayar | Ne için | Not |
+|---|---|---|
+| `PUBLIC_BASE_URL` → `Storage__PublicBaseUrl` | Yanıtlardaki `url` / `thumbnailUrl` | Köken, sürümsüz; `/v1` koddan gelir |
+| `PUBLIC_S3_URL` → `Storage__PublicUrl` | Telefonun fotoğrafı doğrudan yüklediği adres | **Ayrı host şart**: ön imza host'u ve yolu kapsar, `/s3/...` gibi bir önekle sunulamaz |
+| `S3_ACCESS_KEY` / `S3_SECRET_KEY` → SeaweedFS ve `Storage__AccessKey/SecretKey` | S3 yönetici anahtarı | Varsayılan `vakifatlas` / `vakifatlas-dev-secret` **yalnızca yerel**; internete açmadan önce değiştirin. Anahtar değişince servisleri yeniden başlatın |
+| `Auth__Issuer` | Token'ın `iss` değeri | Ayrı ayarlanır (değişince eski token'lar geçersiz olur); genel adresle eşleşmeli |
+
+Ters vekil (örnek Caddy; TLS otomatik). İki host da Docker ağındaki servise gider, S3 isteğinin `Host` başlığı değiştirilmemelidir:
+
+```caddyfile
+vakif-atlas.odx.studio {
+    reverse_proxy localhost:8080
+}
+vakif-atlas-s3.odx.studio {
+    reverse_proxy localhost:8333 {
+        header_up Host {host}
+    }
+    request_body {
+        max_size 20MB
+    }
+}
+```
+
+- **Tek seviyeli ad kullanın** (`vakif-atlas-s3.odx.studio`, `s3.vakif-atlas.odx.studio` değil): Cloudflare'in ücretsiz joker sertifikası (`*.odx.studio`) yalnızca tek seviyeyi kapsar; iki seviyeli adda TLS el sıkışması `handshake failure` ile reddedilir.
+- **Anahtar üretimi ve güvenlik:**
+  ```bash
+  # deploy/compose/.env
+  S3_ACCESS_KEY=atlas$(openssl rand -hex 6)
+  S3_SECRET_KEY=$(openssl rand -base64 32 | tr -d '/+=')
+  ```
+  (komutların çıktısını dosyaya değer olarak yazın; `.env` kabuk yorumlamaz). Yalnızca `8333` yayınlanmalı; **`9333` (master, kimlik doğrulaması yok) için tünel veya yönlendirme eklemeyin**. Anahtar olmadan her istek `403` döner.
+- DNS'te iki ad da sunucuya yönlenmeli (Cloudflare'de proxied; host başlığını yeniden yazan kural eklemeyin, imza bozulur). Doğrulama: `curl -I https://vakif-atlas-s3.odx.studio/` yanıt vermeli (SeaweedFS `403`/`AccessDenied` döner, bu normal).
+- `Production` ortamında iki adres de `https` olmalı; yoksa servis açılmaz (`ValidateOnStart`).
+- Web istemcisi (tarayıcı) doğrudan yüklüyorsa S3 tarafında CORS gerekir; mobil uygulama için gerekmez.
+- Kök CA / pinning: uygulama `STORAGE_SSL_PINS` ile depo bağlantısını ayrı sabitler (`CLAUDE.md` ADR 50); S3 host'u değişince o pin kümesi güncellenmeli.
 
 **Gözlemlenebilirlik** (Prometheus, Grafana, Tempo, ELK) isteğe bağlıdır:
 

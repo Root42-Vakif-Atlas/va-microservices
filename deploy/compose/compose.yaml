@@ -35,11 +35,17 @@ x-env: &env
 
 x-storage: &storage
   Storage__ServiceUrl: http://seaweedfs:8333
-  Storage__PublicUrl: http://localhost:8333
-  Storage__AccessKey: vakifatlas
-  Storage__SecretKey: vakifatlas-dev-secret
+  # İstemcinin fotoğraf yüklediği S3 adresi (ön imza host'u kapsar: ayrı host gerekir, yol öneki olmaz). Başka makineden
+  # erişim için deploy/compose/.env içine PUBLIC_S3_URL=https://vakif-atlas-s3.odx.studio yazın (README → Genel adres).
+  Storage__PublicUrl: ${PUBLIC_S3_URL:-http://localhost:8333}
+  # S3 anahtarı: SeaweedFS ve servisler aynı değişkenlerden okur. Yerel varsayılan yalnızca geliştirme içindir; internete
+  # açmadan önce deploy/compose/.env içine S3_ACCESS_KEY / S3_SECRET_KEY yazın (README → Genel adres).
+  Storage__AccessKey: ${S3_ACCESS_KEY:-vakifatlas}
+  Storage__SecretKey: ${S3_SECRET_KEY:-vakifatlas-dev-secret}
   Storage__EnsureBuckets: "true"
-  Storage__PublicMediaBaseUrl: http://localhost:8080/v1/media/
+  # Gateway'in istemciye görünen adresi (köken, sürümsüz); medya adresleri {köken}/v1/media/… olur. Başka makineden
+  # erişim için deploy/compose/.env içine PUBLIC_BASE_URL=https://vakif-atlas.odx.studio yazın.
+  Storage__PublicBaseUrl: ${PUBLIC_BASE_URL:-http://localhost:8080}
 
 services:
   postgres:
@@ -95,13 +101,16 @@ services:
         "-dir=/data",
         "-s3",
         "-s3.port=8333",
-        "-s3.config=/etc/seaweedfs/s3.json",
+        "-s3.externalUrl=${PUBLIC_S3_URL:-http://localhost:8333}",
         "-master.volumeSizeLimitMB=1024",
         "-volume.max=0",
       ]
+    # Tek yönetici kimlik: yapılandırma dosyası verilmediğinde SeaweedFS anahtarı bu değişkenlerden alır.
+    environment:
+      AWS_ACCESS_KEY_ID: ${S3_ACCESS_KEY:-vakifatlas}
+      AWS_SECRET_ACCESS_KEY: ${S3_SECRET_KEY:-vakifatlas-dev-secret}
     volumes:
       - seaweedfs-data:/data
-      - ./seaweedfs/s3.json:/etc/seaweedfs/s3.json:ro
     ports: ["8333:8333", "9333:9333"]
     healthcheck:
       test:
