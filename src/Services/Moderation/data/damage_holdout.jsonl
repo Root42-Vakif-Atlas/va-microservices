@@ -1,0 +1,33 @@
+{"text": "Kapı kemerinin üzerindeki kitabe taşı çatlamış, ortadan ikiye ayrılmak üzere.", "label": 1, "category": "structuralDamage"}
+{"text": "Şadırvanın sütunlarından biri yerinden kaymış, saçak bir yana yatmış.", "label": 1, "category": "structuralDamage"}
+{"text": "Cephedeki süsleme taşlarının köşeleri kırılıp dökülüyor.", "label": 1, "category": "structuralDamage"}
+{"text": "The stone arch above the gate has cracked right through the middle.", "label": 1, "category": "structuralDamage"}
+{"text": "Fırtınada minarenin külahı yerinden koptu ve avluya düştü, gövde de hasarlı.", "label": 1, "category": "collapseRisk"}
+{"text": "Bedestenin kubbelerinden biri tamamen göçtü, içeriye girilmiyor.", "label": 1, "category": "collapseRisk"}
+{"text": "Duvarın alt kısmı oyulmuş, üstü havada kaldı, yıkılması an meselesi.", "label": 1, "category": "collapseRisk"}
+{"text": "Mezarlıktaki eski taşların üzerine boyayla gamalı haç çizmişler.", "label": 1, "category": "vandalism"}
+{"text": "Şadırvanın musluklarını kırıp mermer kurnaya çöp doldurmuşlar.", "label": 1, "category": "vandalism"}
+{"text": "Kids threw stones and broke the stained glass windows.", "label": 1, "category": "vandalism"}
+{"text": "Türbenin içindeki gümüş kakmalı çekmece yerinde yok.", "label": 1, "category": "theft"}
+{"text": "Minarenin alemi sökülmüş, kimin aldığı belli değil.", "label": 1, "category": "theft"}
+{"text": "Duvardaki hat levhaları gece sökülüp götürülmüş.", "label": 1, "category": "theft"}
+{"text": "Mahfildeki elektrik tesisatından kıvılcım çıkıp halılar tutuştu.", "label": 1, "category": "fireOrWater"}
+{"text": "Kar erirken çatıdan sızan su kalem işlerini bozdu, boyalar akmış.", "label": 1, "category": "fireOrWater"}
+{"text": "The basement of the inn flooded after the heavy storm.", "label": 1, "category": "fireOrWater"}
+{"text": "Kervansarayın avlusuna izinsiz kafe çadırı kurulmuş, duvarlara çivi çakılmış.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Tarihi kapı söküldü, yerine alüminyum kapı takıldı.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Minarenin yanına baz istasyonu anteni dikilmiş.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Avluda gece yatan kişiler ateş yakıyor, ortalık çok kirli.", "label": 1, "category": "other"}
+{"text": "Kubbenin altında durup yukarı bakınca insan kendini çok küçük hissediyor.", "label": 0, "kind": "memory"}
+{"text": "Torunumla ilk kez buraya geldik, çok sevindi.", "label": 0, "kind": "memory"}
+{"text": "Sema töreninden sonra dergâhın bahçesinde yürüdük.", "label": 0, "kind": "memory"}
+{"text": "Tuvaletler çok kirliydi, yetkililerin ilgilenmesi gerekiyor.", "label": 0, "kind": "complaint"}
+{"text": "Kalabalık yüzünden hiçbir şey göremedik, sabah erken gidin.", "label": 0, "kind": "complaint"}
+{"text": "Arabamın motor yağını değiştirmem lazım, hangi marka iyi?", "label": 0, "kind": "offtopic"}
+{"text": "Balkondaki domatesler bu yıl çok verimli oldu.", "label": 0, "kind": "offtopic"}
+{"text": "İş görüşmem iyi geçti, umarım beni ararlar.", "label": 0, "kind": "offtopic"}
+{"text": "Fenerbahçe bu sezon ligi kesin alır, iddiaya varım.", "label": 0, "kind": "offtopic"}
+{"text": "Kombi arıza verdi, ev buz gibi, servis gelmedi.", "label": 0, "kind": "offtopic"}
+{"text": "Sadece formu denemek için yazıyorum, önemli değil.", "label": 0, "kind": "test"}
+{"text": "qwertyuiop qwertyuiop qwertyuiop", "label": 0, "kind": "test"}
+{"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "label": 0, "kind": "test"}

@@ -1,0 +1,96 @@
+{"text": "Caminin kuzey duvarında pencerenin altından başlayan bir çatlak var, geçen aydan beri büyüdü.", "label": 1, "category": "structuralDamage"}
+{"text": "Minare gövdesindeki taşların arası açılmış, bazı taşlar dışarı çıkmış durumda.", "label": 1, "category": "structuralDamage"}
+{"text": "Türbenin kubbesinde içeriden bakınca kılcal çatlaklar görülüyor, sıva parça parça düşüyor.", "label": 1, "category": "structuralDamage"}
+{"text": "Hanın avlusundaki kemerlerden birinin taşları kaymış, kemer bozulmuş görünüyor.", "label": 1, "category": "structuralDamage"}
+{"text": "Hamamın dış cephesinde taşlar ufalanıyor, derzler tamamen boşalmış.", "label": 1, "category": "structuralDamage"}
+{"text": "Son depremden sonra mihrap duvarında çapraz çatlaklar oluştu.", "label": 1, "category": "structuralDamage"}
+{"text": "Medresenin revak sütunlarının başlıkları kırılmış, üstteki kemer çatlamış.", "label": 1, "category": "structuralDamage"}
+{"text": "Köprünün ayağında taşlar oyulmuş, korkuluk taşları gevşemiş.", "label": 1, "category": "structuralDamage"}
+{"text": "There is a big crack in the wall next to the entrance door of the mosque.", "label": 1, "category": "structuralDamage"}
+{"text": "Çeşmenin mermer kurnasında ve arkasındaki duvarda belirgin bir yarık oluştu.", "label": 1, "category": "structuralDamage"}
+{"text": "Dün geceki depremde minarenin üst kısmı yıkıldı, kalanı da sallanıyor gibi.", "label": 1, "category": "collapseRisk"}
+{"text": "Hanın ikinci kat döşemesi çökmüş, alttaki dükkânlara taş düşüyor.", "label": 1, "category": "collapseRisk"}
+{"text": "Türbenin kubbesinin yarısı göçmüş, içerisi açıkta kaldı.", "label": 1, "category": "collapseRisk"}
+{"text": "Cami avlusunun duvarı yola doğru yatmış, çocuklar yanından geçiyor, çok tehlikeli.", "label": 1, "category": "collapseRisk"}
+{"text": "Hamamın soyunmalık bölümünün ahşap çatısı tamamen çöktü.", "label": 1, "category": "collapseRisk"}
+{"text": "Medresenin bir hücresinin tavanı içeri doğru sarkmış, kirişler çatlamış.", "label": 1, "category": "collapseRisk"}
+{"text": "Köprünün bir kemeri sel sonrası yıkıldı, kalan kısım da çökebilir.", "label": 1, "category": "collapseRisk"}
+{"text": "The courtyard wall is leaning badly and looks like it could fall on the street.", "label": 1, "category": "collapseRisk"}
+{"text": "Deprem sonrası caminin son cemaat yeri çöktü, enkaz kaldırılmadı.", "label": 1, "category": "collapseRisk"}
+{"text": "Türbenin girişindeki saçak tamamen düşmek üzere, alttan destek yok.", "label": 1, "category": "collapseRisk"}
+{"text": "Caminin kapısının yanına siyah boyayla taraftar yazıları yazmışlar.", "label": 1, "category": "vandalism"}
+{"text": "Hazirede birkaç mezar taşı kırılmış, başlıkları yerde duruyor.", "label": 1, "category": "vandalism"}
+{"text": "Çeşmenin kitabesine kazıyarak isim yazmışlar, harfler bozulmuş.", "label": 1, "category": "vandalism"}
+{"text": "Türbenin pencere camları kırılmış, içeri taş atılmış.", "label": 1, "category": "vandalism"}
+{"text": "Medresenin taç kapısının yanındaki mermer süslemeyi kırmışlar.", "label": 1, "category": "vandalism"}
+{"text": "Hanın ahşap kapısı yakılmaya çalışılmış, üzerinde yazılar var.", "label": 1, "category": "vandalism"}
+{"text": "Gece biri minarenin kaidesine sprey boyayla çizimler yapmış.", "label": 1, "category": "vandalism"}
+{"text": "Köprünün korkuluk taşlarını yerinden söküp nehre atmışlar.", "label": 1, "category": "vandalism"}
+{"text": "Somebody carved their names into the marble around the fountain.", "label": 1, "category": "vandalism"}
+{"text": "Hamamın dış duvarına afiş yapıştırılmış, sökerken taş yüzeyi zarar görmüş.", "label": 1, "category": "vandalism"}
+{"text": "Türbenin çatısındaki kurşunları gece sökmüşler, yarısı yok.", "label": 1, "category": "theft"}
+{"text": "Caminin giriş kapısındaki pirinç tokmaklardan biri çalınmış.", "label": 1, "category": "theft"}
+{"text": "Mihrabın yanındaki eski çini panodan üç çini sökülüp götürülmüş.", "label": 1, "category": "theft"}
+{"text": "Çeşmenin bakır muslukları ve tası çalınmış, sadece delikleri kaldı.", "label": 1, "category": "theft"}
+{"text": "Türbedeki sandukaların üzerindeki işlemeli örtüler kaybolmuş.", "label": 1, "category": "theft"}
+{"text": "Medresenin avlusundaki mermer şadırvanın musluk başlıkları sökülmüş.", "label": 1, "category": "theft"}
+{"text": "Camideki el yazması Kuranlardan biri vitrininden alınmış.", "label": 1, "category": "theft"}
+{"text": "Someone stole the antique brass lamps hanging in the prayer hall.", "label": 1, "category": "theft"}
+{"text": "Hanın kapısındaki demir işlemeli parmaklıklar kesilip götürülmüş.", "label": 1, "category": "theft"}
+{"text": "Hazirenin mezar taşlarından birkaçı yerinde yok, söküp götürmüşler.", "label": 1, "category": "theft"}
+{"text": "Dün akşam türbenin yanındaki ağaçlarda yangın çıktı, alevler duvara sıçradı.", "label": 1, "category": "fireOrWater"}
+{"text": "Caminin kadınlar mahfili yanmış, ahşap korkuluklar kömürleşmiş.", "label": 1, "category": "fireOrWater"}
+{"text": "Kubbeden su damlıyor, halılar ıslanmış ve çürümeye başlamış.", "label": 1, "category": "fireOrWater"}
+{"text": "Hamamın duvarlarında yeşil küf ve rutubet lekeleri her yeri sarmış.", "label": 1, "category": "fireOrWater"}
+{"text": "Şiddetli yağmurda medresenin bodrumunu su bastı.", "label": 1, "category": "fireOrWater"}
+{"text": "Çatı oluklarından taşan su duvardan aşağı akıyor, taşlar kararmış.", "label": 1, "category": "fireOrWater"}
+{"text": "Hanın içinde çıkan yangından sonra tavanlar is içinde kalmış.", "label": 1, "category": "fireOrWater"}
+{"text": "Water is coming in through the dome and the carpets are soaked.", "label": 1, "category": "fireOrWater"}
+{"text": "Sel sonrası köprünün ayaklarının etrafı oyulmuş, su seviyesi çok yüksek.", "label": 1, "category": "fireOrWater"}
+{"text": "Türbenin duvarlarında nem yüzünden kalem işleri kabarıp dökülüyor.", "label": 1, "category": "fireOrWater"}
+{"text": "Caminin hemen arkasında izinsiz bir bina yükseliyor, iskele duvara dayanmış.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Hanın taş duvarına delik açılıp klima motoru monte edilmiş.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Çeşmenin önüne beton döküp otopark yapmışlar, kurna toprağa gömüldü.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Türbenin bahçe duvarı yıkılıp yerine briket duvar örülmüş.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Medresenin hücrelerinden biri dükkâna çevrilmiş, kapısı vitrin camıyla değiştirilmiş.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Hamamın kubbesinin üzerine çelik çatı yapmışlar, izin alınmış mı bilmiyorum.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Caminin taş minaresinin dibinde kepçeyle kanalizasyon kazısı yapılıyor.", "label": 1, "category": "unauthorizedWork"}
+{"text": "They are building a concrete extension against the old caravanserai wall.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Köprünün korkuluklarının yerine metal bariyer takılmış.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Hazirenin bir kısmı yol genişletme çalışmasında iş makineleriyle düzleştirildi.", "label": 1, "category": "unauthorizedWork"}
+{"text": "Caminin etrafı çöp dolu, bakımsızlıktan yapı kötü görünüyor.", "label": 1, "category": "other"}
+{"text": "Türbenin kapısı kilitli değil, gece içeri herkes girebiliyor.", "label": 1, "category": "other"}
+{"text": "Hanın avlusunda güvercinler yuva yapmış, pisliklerden taşlar bozuluyor.", "label": 1, "category": "other"}
+{"text": "Çeşmenin etrafındaki ağaç kökleri temeli kaldırmaya başlamış.", "label": 1, "category": "other"}
+{"text": "Medresenin bahçesine sürekli araç park ediliyor, duvara çarpıyorlar.", "label": 1, "category": "other"}
+{"text": "Süleymaniye Camii'ni ailemle ziyaret ettik, avlusu çok huzurluydu.", "label": 0, "kind": "memory"}
+{"text": "Türbede dua ettik, ruhları şad olsun, çok etkilendik.", "label": 0, "kind": "memory"}
+{"text": "Hanın avlusunda çay içip eski kervanları hayal ettik.", "label": 0, "kind": "memory"}
+{"text": "Restorasyondan sonra yapı çok güzel olmuş, emeği geçenlere teşekkürler.", "label": 0, "kind": "memory"}
+{"text": "Çinilerin rengi fotoğraflarda görünenden çok daha canlı.", "label": 0, "kind": "memory"}
+{"text": "Babamla son kez birlikte geldiğimiz yerdi, her gelişimde onu anıyorum.", "label": 0, "kind": "memory"}
+{"text": "Hamamda kese yaptırdık, göbek taşı sıcacıktı, harika bir deneyimdi.", "label": 0, "kind": "memory"}
+{"text": "Akşam ışıklandırması yanınca minare bambaşka görünüyor.", "label": 0, "kind": "memory"}
+{"text": "We visited with our kids, the tiles were stunning.", "label": 0, "kind": "memory"}
+{"text": "Otopark yetersiz, hafta sonu gelmenizi önermem.", "label": 0, "kind": "complaint"}
+{"text": "Giriş saatleri internette yanlış yazıyor, kapıdan döndük.", "label": 0, "kind": "complaint"}
+{"text": "Görevli çok kaba davrandı, fotoğraf çekmemize izin vermedi.", "label": 0, "kind": "complaint"}
+{"text": "Müze kartı geçmiyor, bilet fiyatları da çok yüksek.", "label": 0, "kind": "complaint"}
+{"text": "Galatasaray yine kazandı, bu sene şampiyonluk bizim!", "label": 0, "kind": "offtopic"}
+{"text": "Mercimek çorbası tarifi: bir su bardağı kırmızı mercimek, bir soğan.", "label": 0, "kind": "offtopic"}
+{"text": "Yarın hava yağmurlu olacakmış, şemsiyenizi almayı unutmayın.", "label": 0, "kind": "offtopic"}
+{"text": "Benzine yine zam gelmiş, bu gidişat hiç iyi değil.", "label": 0, "kind": "offtopic"}
+{"text": "Uygulama çok yavaş açılıyor, lütfen bu sorunu düzeltin.", "label": 0, "kind": "offtopic"}
+{"text": "Kedim bu sabah yine mamasını yemedi, ne yapmalıyım?", "label": 0, "kind": "offtopic"}
+{"text": "Seçimlerde oyumu kime vereceğimi hâlâ bilmiyorum.", "label": 0, "kind": "offtopic"}
+{"text": "Bu dizinin final bölümü berbattı, senaristler ne düşünüyordu?", "label": 0, "kind": "offtopic"}
+{"text": "I just bought new running shoes and they are so comfortable.", "label": 0, "kind": "offtopic"}
+{"text": "Bu bildirim test amaçlı gönderilmiştir, dikkate almayınız.", "label": 0, "kind": "test"}
+{"text": "deneme deneme deneme deneme deneme", "label": 0, "kind": "test"}
+{"text": "asdasdasd asdasdasd asdasdasd asd", "label": 0, "kind": "test"}
+{"text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "label": 0, "kind": "test"}
+{"text": "Merhaba, uygulamayı deniyorum, nasıl çalışıyor acaba?", "label": 0, "kind": "test"}
+{"text": "En uygun kredi faizleri için hemen arayın 0555 123 45 67", "label": 0, "kind": "spam"}
+{"text": "Deneme bonusu veren bahis siteleri için profilimdeki linke tıklayın.", "label": 0, "kind": "spam"}
+{"text": "Otelimizde bu hafta %40 indirim, rezervasyon için WhatsApp 0532 000 00 00", "label": 0, "kind": "spam"}
+{"text": "Evden çalışarak günde 5000 TL kazanmak ister misiniz? DM atın.", "label": 0, "kind": "spam"}

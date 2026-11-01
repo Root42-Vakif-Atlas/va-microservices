@@ -1,0 +1,152 @@
+{
+  "context": {
+    "embedding": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "index": "d8e65b479782",
+    "damagePrototypes": 48,
+    "damage": "top5_mean_cosine(damage_prototypes); category: top3_mean_cosine(category_prototypes)"
+  },
+  "references": {
+    "version": "d59d55c0ad0a",
+    "images": 3853
+  },
+  "damage": {
+    "sets": {
+      "damage": {
+        "n": 65,
+        "p00": 0.3939,
+        "p01": 0.3949,
+        "p05": 0.4207,
+        "p25": 0.5468,
+        "p50": 0.6028,
+        "p75": 0.6688,
+        "p95": 0.7258,
+        "p99": 0.7594,
+        "p100": 0.7851
+      },
+      "notDamage": {
+        "n": 31,
+        "p00": 0.0121,
+        "p01": 0.0196,
+        "p05": 0.0387,
+        "p25": 0.1498,
+        "p50": 0.1909,
+        "p75": 0.2863,
+        "p95": 0.3854,
+        "p99": 0.4052,
+        "p100": 0.4115
+      },
+      "auc": 0.999,
+      "aucHoldout": 0.9885
+    },
+    "bands": {
+      "damageSupported": 0.9692,
+      "notDamageSupported": 0.0323,
+      "damageUndermined": 0.0,
+      "notDamageUndermined": 0.8387,
+      "holdoutDamageSupported": 0.95,
+      "holdoutNotDamageSupported": 0.2308,
+      "holdoutDamageUndermined": 0.05,
+      "holdoutNotDamageUndermined": 0.7692
+    },
+    "categories": {
+      "eval": {
+        "n": 60,
+        "top1": 0.8167,
+        "trueWithinMargin": 0.9167,
+        "wrongWithinMargin": 0.1333,
+        "margin": 0.05
+      },
+      "holdout": {
+        "n": 19,
+        "top1": 0.6316,
+        "trueWithinMargin": 0.8421,
+        "wrongWithinMargin": 0.1684,
+        "margin": 0.05
+      },
+      "note": "yalnızca bilgi: etiket kararına girmez"
+    }
+  },
+  "catalogCopy": {
+    "sample": 300,
+    "copies": {
+      "thumbnail640": {
+        "n": 300,
+        "p00": 0.917,
+        "p01": 0.9436,
+        "p05": 0.975,
+        "p25": 0.9888,
+        "p50": 0.9943,
+        "p75": 0.9974,
+        "p95": 0.9989,
+        "p99": 0.9994,
+        "p100": 0.9997
+      },
+      "crop80": {
+        "n": 300,
+        "p00": 0.6239,
+        "p01": 0.7247,
+        "p05": 0.8058,
+        "p25": 0.8917,
+        "p50": 0.9219,
+        "p75": 0.943,
+        "p95": 0.9588,
+        "p99": 0.9656,
+        "p100": 0.9873
+      },
+      "lowQuality400": {
+        "n": 300,
+        "p00": 0.6107,
+        "p01": 0.8794,
+        "p05": 0.9082,
+        "p25": 0.9514,
+        "p50": 0.9704,
+        "p75": 0.9802,
+        "p95": 0.9889,
+        "p99": 0.9915,
+        "p100": 0.9933
+      },
+      "brightness800": {
+        "n": 300,
+        "p00": 0.9209,
+        "p01": 0.9498,
+        "p05": 0.9778,
+        "p25": 0.9884,
+        "p50": 0.9937,
+        "p75": 0.9965,
+        "p95": 0.9982,
+        "p99": 0.9989,
+        "p100": 0.9992
+      }
+    },
+    "otherCatalogPhotos": {
+      "n": 300,
+      "p00": 0.4387,
+      "p01": 0.4675,
+      "p05": 0.5359,
+      "p25": 0.6688,
+      "p50": 0.734,
+      "p75": 0.8046,
+      "p95": 0.8804,
+      "p99": 0.9358,
+      "p100": 0.9846
+    },
+    "recall": {
+      "thumbnail640": 0.9933,
+      "crop80": 0.2933,
+      "lowQuality400": 0.8267,
+      "brightness800": 0.99
+    },
+    "falsePositive": 0.0067
+  },
+  "thresholds": {
+    "damageSupportsFrom": 0.4,
+    "damageUnderminesBelow": 0.34,
+    "catalogCopyFrom": 0.94,
+    "categoryMargin": 0.05,
+    "targets": {
+      "maxFalseSupport": 0.05,
+      "safety": 0.05,
+      "maxCopyFalse": 0.01
+    }
+  }
+}

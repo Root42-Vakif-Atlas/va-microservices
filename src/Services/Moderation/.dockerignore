@@ -1,0 +1,7 @@
+models/*.fp32.onnx*
+models/*.tmp.npz
+models/out*/
+.venv/
+**/__pycache__/
+.pytest_cache/
+.ruff_cache/

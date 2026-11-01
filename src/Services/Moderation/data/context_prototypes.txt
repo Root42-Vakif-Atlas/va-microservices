@@ -1,0 +1,54 @@
+# Anı türü prototipleri: bir vakıf eserini ziyaret anısının genel biçimleri (eser adı geçmez).
+# scripts/build_context.py gömer; anının eserle bağlamı = max(esere benzerlik, prototiplere benzerlik).
+# Kalibrasyon seti (data/relevance_eval.jsonl) ile aynı cümleler buraya eklenmez.
+Camiyi ziyaret ettik, içerisi çok huzurluydu.
+Bu camide namaz kıldık, avlusu çok güzeldi.
+Caminin kubbesi ve çinileri çok etkileyiciydi.
+Minarenin ve kubbenin mimarisine hayran kaldık.
+Şadırvanda abdest alıp öğle namazını kıldık.
+Mescit küçük ama çok sıcak bir atmosferi var.
+Türbeyi ziyaret edip dua ettik, Fatiha okuduk.
+Türbenin sandukaları ve kitabeleri çok eskiydi.
+Kümbetin taş işçiliği yüzyıllara meydan okuyor.
+Hazirede mezar taşlarını inceledik.
+Medresenin avlusunda ve hücrelerinde dolaştık.
+Kütüphanedeki eski kitaplar ve el yazmaları ilgimizi çekti.
+Hanın avlusunda oturup çay içtik.
+Kervansarayın taç kapısı çok görkemli.
+Bedestende ve çarşıda alışveriş yapıp tarihi binayı gezdik.
+Tarihi hamamda yıkandık, kubbedeki ışıklar çok güzeldi.
+Çeşmenin suyundan içtik, kitabesini okumaya çalıştık.
+Tarihi köprünün üzerinden yürüyüp fotoğraf çektik.
+İmarette eskiden yemek dağıtıldığını öğrendik.
+Külliyenin yapılarını tek tek gezdik.
+Kilisenin içi çok sakin ve etkileyiciydi, freskleri inceledik.
+Sinagogu ziyaret ettik, tarihi dokusu çok güzel korunmuş.
+Tarihi konağın ahşap işçiliği ve tavan süslemeleri görülmeye değer.
+Restorasyondan sonra yapı çok güzel olmuş.
+Restorasyon gerekiyor, duvarlarda çatlaklar ve hasar var.
+Depremde zarar gören yapının yeniden ayağa kalkmasını diliyorum.
+Ailemle birlikte bu tarihi eseri ziyaret ettik.
+Çocukluğumda dedemle buraya gelirdik, şimdi kendi çocuklarımla geliyorum.
+Okul gezisinde öğretmenimizle buraya gelmiştik.
+Rehberimiz eserin tarihini ve banisini anlattı.
+Yapının kitabesinde yazanları öğrendik.
+Osmanlı ve Selçuklu döneminden kalma bu eser çok etkileyici.
+Burada geçirdiğimiz gün unutulmazdı.
+Tarihi eseri görmek için uzun yoldan geldik, değdi.
+Bu tarihi mekân bizim için çok anlamlı, her geldiğimde duygulanıyorum.
+Akşam ışıklarında yapı bambaşka görünüyor.
+Bayram namazında cemaat avluya taşmıştı.
+Ramazanda burada iftar ve teravih çok güzel geçti.
+Mekânın görevlileri çok ilgili ve yardımseverdi.
+Ruhları şad olsun, mekânları cennet olsun.
+Çok güzel ve huzurlu bir yer, herkese tavsiye ederim.
+We visited this historic mosque with our family, it was very peaceful.
+The tiles and the dome of the mosque were stunning.
+We prayed at the tomb and learned about its history.
+The old caravanserai and its courtyard were beautiful.
+We had a traditional bath in this historic hammam.
+The inscriptions on the fountain were fascinating.
+Our guide told us the history of the building and its founder.
+The restoration of this monument is very well done.
+I remember coming here as a child with my grandparents.
+A beautiful historic place, highly recommended.

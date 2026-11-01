@@ -1,0 +1,6 @@
+# Model dosyaları imaj derlemesinde üretilir (scripts/export_onnx.py); repoya girmez.
+models/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/

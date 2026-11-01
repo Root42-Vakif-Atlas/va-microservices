@@ -1,0 +1,63 @@
+{
+  "_comment": "Hasar bildirimi prototipleri (tür başına; eser adı geçmez). scripts/build_context.py gömer. Açıklamanın hasar tarifine benzerliği = tüm prototiplere en yakın 5'in ortalaması; tür uyumu = türün prototiplerine en yakın 3'ün ortalaması. Kalibrasyon (data/damage_eval.jsonl) ve hold-out (data/damage_holdout.jsonl) cümleleri buraya eklenmez.",
+  "structuralDamage": [
+    "Beden duvarında yukarıdan aşağıya uzanan derin bir çatlak oluştu.",
+    "Kubbenin iç yüzeyinde sıvalar dökülmüş, çatlaklar genişliyor.",
+    "Minarenin şerefe altındaki taşlar yerinden oynamış.",
+    "Kemerin kilit taşında ayrılma var, derz boşlukları açılmış.",
+    "Taş cephede tuğlalar ve derzler aşınmış, parçalar kopuyor.",
+    "Revak sütunlarından biri eğilmiş görünüyor.",
+    "The stone wall has a long crack running down from the roof.",
+    "Plaster is falling off the dome and the cracks are getting wider."
+  ],
+  "collapseRisk": [
+    "Duvar dışa doğru bombe yapmış, her an yıkılabilir.",
+    "Çatının bir kısmı çökmüş, kalan kısım da sarkıyor.",
+    "Minare tehlikeli biçimde eğildi, altından geçmek riskli.",
+    "Depremden sonra yapının bir köşesi göçtü, enkaz yolda duruyor.",
+    "Ahşap tavan kirişleri kırılmış, tavan çökmek üzere.",
+    "Kubbenin bir bölümü içeri çökmüş, girişler tehlikeli.",
+    "Part of the roof has collapsed and the rest is about to fall.",
+    "The minaret is leaning dangerously after the earthquake."
+  ],
+  "vandalism": [
+    "Dış duvarlara sprey boyayla yazılar yazılmış.",
+    "Mezar taşları kırılmış ve devrilmiş.",
+    "Kapının ahşap oymaları bıçakla kazınmış, isimler yazılmış.",
+    "Pencere camları taşla kırılmış.",
+    "Çeşmenin musluk taşı ve kitabesi kırılıp parçalanmış.",
+    "Çini panolar kasten kırılmış, parçalar yere saçılmış.",
+    "Someone sprayed graffiti all over the outer walls.",
+    "The gravestones have been smashed and knocked over."
+  ],
+  "theft": [
+    "Kubbenin kurşun kaplamaları sökülüp çalınmış.",
+    "Kapının bronz tokmakları ve halkaları yerinde yok, çalınmış.",
+    "Mihraptaki çinilerden bazıları sökülüp götürülmüş.",
+    "Halılar ve eski kandiller camiden çalınmış.",
+    "Çeşmenin pirinç muslukları sökülmüş.",
+    "Türbedeki sandukanın örtüsü ve levhalar kaybolmuş.",
+    "The lead sheets on the dome have been stripped and stolen.",
+    "Several tiles were pried off and taken from the wall."
+  ],
+  "fireOrWater": [
+    "Yapıda yangın çıktı, iç kısım ve ahşap aksam yandı.",
+    "Duvarlar is ve dumandan kararmış, yangın izi var.",
+    "Çatı akıtıyor, yağmur suyu içeri giriyor ve tavan ıslak.",
+    "Duvarlarda rutubet ve küf yayılmış, sıvalar kabarmış.",
+    "Sel suyu yapının içine dolmuş, zemin çamur içinde.",
+    "Su borusu patlamış, duvardan sürekli su sızıyor.",
+    "A fire broke out and the wooden ceiling burned.",
+    "Rainwater leaks through the roof and the walls are damp and mouldy."
+  ],
+  "unauthorizedWork": [
+    "Tarihi duvarın yanında izinsiz inşaat yapılıyor, iş makineleri çalışıyor.",
+    "Yapıya izinsiz ek bina yapılmış, beton döküldü.",
+    "Orijinal taş cephe çimento sıva ile kapatılmış.",
+    "Avluda kazı yapılıyor, toprak tarihi duvara yığılmış.",
+    "Ahşap pencereler sökülüp yerine plastik doğrama takılmış.",
+    "Eserin bitişiğinde dozer çalışıyor, temel kazısı yapılıyor.",
+    "Unauthorized construction is going on right next to the historic wall.",
+    "The original stone facade has been covered with cement plaster."
+  ]
+}

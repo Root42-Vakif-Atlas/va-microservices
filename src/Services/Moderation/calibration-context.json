@@ -1,0 +1,121 @@
+{
+  "context": {
+    "name": "vakifatlas-context",
+    "version": "1.0",
+    "embedding": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "index": "d8e65b479782",
+    "relevance": "max(monument_centroid_cosine, top5_prototype_cosine_mean)"
+  },
+  "sets": {
+    "related": {
+      "n": 137,
+      "p01": 0.1571,
+      "p05": 0.2484,
+      "p10": 0.3163,
+      "p25": 0.4061,
+      "p50": 0.4998,
+      "p75": 0.5879,
+      "p90": 0.6536,
+      "p95": 0.7072,
+      "p99": 0.753
+    },
+    "unrelated": {
+      "n": 39,
+      "p01": 0.065,
+      "p05": 0.0968,
+      "p10": 0.1607,
+      "p25": 0.1929,
+      "p50": 0.2435,
+      "p75": 0.2873,
+      "p90": 0.3393,
+      "p95": 0.3649,
+      "p99": 0.4136
+    },
+    "spam": {
+      "n": 16,
+      "p01": 0.0631,
+      "p05": 0.0769,
+      "p10": 0.0964,
+      "p25": 0.1225,
+      "p50": 0.1936,
+      "p75": 0.2247,
+      "p90": 0.3028,
+      "p95": 0.4002,
+      "p99": 0.4672
+    },
+    "auc": 0.938,
+    "aucHoldout": 0.9725,
+    "msPerText": 2.6
+  },
+  "thresholds": {
+    "approveFrom": 0.38,
+    "reviewBelow": 0.2,
+    "spamReviewFrom": 0.5,
+    "spamRejectFrom": 0.9,
+    "targets": {
+      "maxFalseApprove": 0.05,
+      "maxMissRelated": 0.02
+    }
+  },
+  "bands": {
+    "relatedApproved": 0.8029,
+    "relatedBelowReview": 0.0146,
+    "unrelatedApproved": 0.0256,
+    "unrelatedBelowReview": 0.2821,
+    "holdoutRelatedApproved": 0.9,
+    "holdoutRelatedBelowReview": 0.0,
+    "holdoutUnrelatedApproved": 0.05,
+    "spamCaughtByRules": 1.0,
+    "nonSpamFlaggedByRules": 0.0,
+    "byKind": {
+      "domain": {
+        "n": 60,
+        "median": 0.4247,
+        "approve": 0.6333,
+        "belowReview": 0.0333,
+        "spamReject": 0.0,
+        "spamReview": 0.0
+      },
+      "gibberish": {
+        "n": 8,
+        "median": 0.2443,
+        "approve": 0.0,
+        "belowReview": 0.25,
+        "spamReject": 0.0,
+        "spamReview": 0.0
+      },
+      "memory": {
+        "n": 65,
+        "median": 0.5266,
+        "approve": 0.9538,
+        "belowReview": 0.0,
+        "spamReject": 0.0,
+        "spamReview": 0.0
+      },
+      "offtopic": {
+        "n": 31,
+        "median": 0.2435,
+        "approve": 0.0323,
+        "belowReview": 0.2903,
+        "spamReject": 0.0,
+        "spamReview": 0.0
+      },
+      "short": {
+        "n": 12,
+        "median": 0.6029,
+        "approve": 0.8333,
+        "belowReview": 0.0,
+        "spamReject": 0.0,
+        "spamReview": 0.0
+      },
+      "spam": {
+        "n": 16,
+        "median": 0.1936,
+        "approve": 0.0625,
+        "belowReview": 0.5625,
+        "spamReject": 1.0,
+        "spamReview": 0.0
+      }
+    }
+  }
+}

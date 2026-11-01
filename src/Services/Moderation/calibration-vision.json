@@ -1,0 +1,144 @@
+{
+  "vision": {
+    "name": "vakifatlas-vision",
+    "version": "1.0",
+    "nsfw": "Falconsai/nsfw_image_detection",
+    "embedding": "facebook/dinov2-small",
+    "similarity": "centroid_cosine"
+  },
+  "references": {
+    "version": "d59d55c0ad0a",
+    "createdAt": "2026-10-31T12:00:59+00:00",
+    "vision": "vakifatlas-vision/1.0",
+    "embedding": "facebook/dinov2-small",
+    "works": 735,
+    "images": 3853,
+    "skipped": 0,
+    "sources": [
+      "bursa/root42-veri.json",
+      "hatay/root42-veri.json",
+      "konya/root42-veri.json"
+    ]
+  },
+  "sets": {
+    "sameMonument": {
+      "n": 3166,
+      "p01": 0.0372,
+      "p05": 0.1121,
+      "p10": 0.158,
+      "p25": 0.258,
+      "p50": 0.3908,
+      "p75": 0.5226,
+      "p90": 0.6155,
+      "p95": 0.6742,
+      "p99": 0.7782
+    },
+    "lookalikeMonument": {
+      "n": 3166,
+      "p01": 0.2863,
+      "p05": 0.409,
+      "p10": 0.4638,
+      "p25": 0.5329,
+      "p50": 0.6117,
+      "p75": 0.6813,
+      "p90": 0.73,
+      "p95": 0.7596,
+      "p99": 0.8047
+    },
+    "unrelated": {
+      "n": 110600,
+      "p01": -0.1089,
+      "p05": -0.076,
+      "p10": -0.0578,
+      "p25": -0.0276,
+      "p50": 0.0065,
+      "p75": 0.0444,
+      "p90": 0.0878,
+      "p95": 0.1244,
+      "p99": 0.2207
+    },
+    "nsfwCatalog": {
+      "n": 3544,
+      "p01": 0.0001,
+      "p05": 0.0001,
+      "p10": 0.0001,
+      "p25": 0.0001,
+      "p50": 0.0002,
+      "p75": 0.0002,
+      "p90": 0.0004,
+      "p95": 0.0006,
+      "p99": 0.0024
+    },
+    "nsfwUnrelated": {
+      "n": 200,
+      "p01": 0.0001,
+      "p05": 0.0001,
+      "p10": 0.0001,
+      "p25": 0.0001,
+      "p50": 0.0002,
+      "p75": 0.0003,
+      "p90": 0.0008,
+      "p95": 0.0015,
+      "p99": 0.0065
+    }
+  },
+  "thresholds": {
+    "nsfwReviewFrom": 0.5,
+    "nsfwRejectFrom": 0.9,
+    "similarityReviewBelow": 0.11,
+    "similarityRejectBelow": null,
+    "similarityMinReferences": 3
+  },
+  "bands": {
+    "sameMonumentBelowReview": 0.0477,
+    "lookalikeBelowReview": 0.0,
+    "unrelatedBelowReview": 0.9349,
+    "byReferenceCount": {
+      "3-5": {
+        "works": 313,
+        "sameMonumentBelowReview": 0.0768,
+        "unrelatedBelowReview": 0.9364,
+        "unrelatedP95": 0.1238
+      },
+      "6-10": {
+        "works": 182,
+        "sameMonumentBelowReview": 0.0463,
+        "unrelatedBelowReview": 0.9311,
+        "unrelatedP95": 0.1265
+      },
+      "11-20": {
+        "works": 48,
+        "sameMonumentBelowReview": 0.0371,
+        "unrelatedBelowReview": 0.9364,
+        "unrelatedP95": 0.1233
+      },
+      "21-1000": {
+        "works": 10,
+        "sameMonumentBelowReview": 0.0,
+        "unrelatedBelowReview": 0.952,
+        "unrelatedP95": 0.1071
+      }
+    },
+    "rejectCandidates": {
+      "0.02": {
+        "sameMonument": 0.0066,
+        "unrelated": 0.5992
+      },
+      "0.04": {
+        "sameMonument": 0.0111,
+        "unrelated": 0.7269
+      },
+      "0.06": {
+        "sameMonument": 0.0183,
+        "unrelated": 0.8205
+      },
+      "0.08": {
+        "sameMonument": 0.0272,
+        "unrelated": 0.8823
+      }
+    },
+    "safeImagesAtOrAboveNsfwReview": 0.0003,
+    "safeImagesAtOrAboveNsfwReject": 0.0,
+    "safeImages": 3744
+  }
+}

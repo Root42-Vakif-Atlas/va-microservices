@@ -1,0 +1,36 @@
+[project]
+name = "vakifatlas-moderation"
+version = "1.2.0"
+description = "Vakıf Atlas YZ moderasyon servisi: metin (Detoxify çok dilli, spam kuralları, MiniLM eser bağlamı) + fotoğraf (NSFW ViT, DINOv2), ONNX"
+requires-python = ">=3.13"
+dependencies = [
+  "fastapi==0.161.1",
+  "uvicorn==0.54.0",
+  "pydantic==2.14.1",
+  "onnxruntime==1.31.0",
+  "tokenizers==0.23.3",
+  "numpy==2.5.4",
+  "py3langid==0.4.0",
+  "pillow==13.0.0",
+  "opentelemetry-sdk==1.45.1",
+  "opentelemetry-exporter-otlp-proto-grpc==1.45.1",
+  "opentelemetry-instrumentation-fastapi==0.66b1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "httpx==0.28.1", "ruff==0.17.2"]
+# Yalnızca dışa aktarım / kalibrasyon (Dockerfile export aşaması, scripts/).
+export = ["torch==2.14.1", "transformers==5.20.2", "onnx==1.23.2", "pyarrow==26.0.0"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+# Türkçe metin ve yorumlar ("ı") belirsiz karakter sayılmaz.
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["model: gerçek ONNX modelini ister (MODEL_DIR)"]
