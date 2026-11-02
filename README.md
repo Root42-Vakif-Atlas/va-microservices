@@ -199,6 +199,8 @@ docker compose -f deploy/compose/compose.yaml up -d --build --wait
 
 > **Moderasyon imajı:** İlk derleme modelleri üretir ve ~7 GB Docker belleği ister. Modeller `src/Services/Moderation/models/` altında hazırsa (bkz. [§10](#10-yz-moderasyonu-anılar-nasıl-denetlenir)) `deploy/compose/.env` dosyasına `MODERATION_MODEL_SOURCE=local` yazın; imaj onları kopyalar.
 
+> **Yönlendirme (OSRM):** Rotaların karayolu mesafesi, süresi ve çizgisi kurum içi OSRM'den gelir (`osrm` servisi; çalışma anında dışarıya çıkılmaz). İlk açılışta `osrm-data` Türkiye verisini Geofabrik'ten indirir (~650 MB) ve araç yollarına süzer (170 MB), `osrm` onu hazırlar (birkaç dakika). Hazırlığın tepe belleği **~5,5 GB**'tır. Docker'a 10 GB'tan az bellek verdiyseniz ilk seferde önce yalnızca OSRM'i açın: `docker compose -f deploy/compose/compose.yaml up -d --build --wait osrm`, sonra yığının tamamını açın. Hazır veri `osrm-data` biriminde kalır (~4 GB disk), sonraki açılışlar saniyeler sürer. Veriyi tazelemek için `deploy/compose/.env` dosyasına yeni bir sürüm adı yazın (`OSRM_DATA_VERSION=turkey-2026-12`). Veri yeniden hazırlanır, eski sürüm silinir; rotaların bacakları yeni veriyle detay açılınca ve arka planda saatte bir yeniden hesaplanır. Başka bölge için `OSRM_PBF_URL`. Deneme: `curl 'http://127.0.0.1:5001/route/v1/driving/28.9640,41.0160;26.5594,41.6778?overview=false'`.
+
 | Adres | Ne |
 |---|---|
 | http://localhost:8080/v1/ | API (gateway) |
@@ -206,6 +208,7 @@ docker compose -f deploy/compose/compose.yaml up -d --build --wait
 | http://localhost:8025 | Mailpit — doğrulama e-postaları |
 | http://localhost:15672 | RabbitMQ yönetimi (`vakifatlas` / `vakifatlas`) |
 | http://localhost:8333 | SeaweedFS S3 |
+| http://127.0.0.1:5001 | OSRM — karayolu yönlendirmesi (yalnızca hata ayıklama) |
 | `localhost:5432` | PostgreSQL (`vakifatlas` / `vakifatlas`) |
 
 ### Portlar: hangi servise, kime açık
@@ -216,6 +219,7 @@ Host'a yayımlanan portlar `compose.yaml`'daki `ports:` satırlarından gelir. S
 |---|---|---|---|---|
 | **gateway** | `8080` | tüm arayüzler | Tek giriş noktası (`/v1/...`) | **Evet** (HTTPS ile, ters vekilin arkasında) |
 | **moderation** | `8090` → 8080 | yalnızca `127.0.0.1` | Yerel test (`/v1/moderate`) | Hayır |
+| **osrm** | `5001` → 5000 | yalnızca `127.0.0.1` | Yönlendirme denemesi (`/route/v1/driving/…`) | Hayır |
 | identity, catalog, routes, memories, civil-protection, gamification, assistant, media, feedback | — | — | Yalnızca iç ağ (`:8080`) | Hayır (gateway üzerinden) |
 | postgres | `5432` | tüm arayüzler | Veritabanları (servis başına 1) | **Hayır** |
 | redis | `6379` | tüm arayüzler | Önbellek, hız sınırı | **Hayır** |
@@ -233,6 +237,7 @@ Host'a yayımlanan portlar `compose.yaml`'daki `ports:` satırlarından gelir. S
 | memories | moderation | `http://moderation:8080` (`/v1/moderate`) |
 | civil-protection | moderation | `http://moderation:8080` (`/v1/assess-report`, arka planda) |
 | routes, memories, civil-protection | catalog | `http://catalog:8080/v1/` |
+| routes | osrm | `http://osrm:5000` (`/route/v1/driving/…`) |
 | 9 servis (gateway hariç) | postgres, redis, rabbitmq | `postgres:5432`, `redis:6379`, `rabbitmq:5672` |
 | catalog, memories, civil-protection, media | seaweedfs | `http://seaweedfs:8333` |
 | identity | mailpit | `mailpit:1025` |

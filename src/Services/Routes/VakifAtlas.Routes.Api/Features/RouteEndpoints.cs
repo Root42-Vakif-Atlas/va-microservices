@@ -42,6 +42,18 @@ public sealed record RouteOverview(string Id, string Name, DateTimeOffset Create
 
 public sealed record RouteList(IReadOnlyList<RouteOverview> Items);
 
+/// <summary><c>routes/preview</c> ve <c>routes/matrix</c> gövdesi: durak eserleri, sırasıyla.</summary>
+public sealed record StopSequenceRequest(List<string>? MonumentIds);
+
+/// <summary>Kaydetmeden karayolu bacakları (oluşturucunun ön hesabı).</summary>
+public sealed record RoutePreviewResponse(IReadOnlyList<RouteLeg> Legs, int DistanceMeters, int TravelSeconds);
+
+/// <summary>
+/// Durak çiftleri arası karayolu süresi ve mesafesi: <c>[i][j]</c> = <c>i</c> → <c>j</c> (oluşturucunun "Sırayı
+/// optimize et"i). Yol bulunmayan çift kuş uçuşu tahminiyle doldurulur.
+/// </summary>
+public sealed record TravelMatrixResponse(int[][] DurationSeconds, int[][] DistanceMeters);
+
 /// <summary>
 /// <c>routes</c> (api-contracts.md → Rotalar): <c>X-Installation-Id</c> zorunlu, Bearer isteğe bağlı
 /// (<see cref="OwnerScope"/>). Oturum açıksa rotalar hesaba aittir (yeniden kurulumda ve diğer
@@ -56,10 +68,16 @@ public static class RouteEndpoints
     /// <summary>Liste sayfalı değildir; en yeni bu kadar rota döner (sınırsız yanıt yok).</summary>
     public const int MaxListed = 200;
 
+    /// <summary>Oluşturucu her durak değişiminde (seyreltilmiş) ön hesap ister.</summary>
+    private const int PreviewsPerHour = 600;
+    private const int MatricesPerHour = 120;
+
     public static RouteGroupBuilder MapRouteEndpoints(this RouteGroupBuilder group)
     {
         group.MapGet(string.Empty, List);
         group.MapPost(string.Empty, Create);
+        group.MapPost("preview", Preview);
+        group.MapPost("matrix", Matrix);
         group.MapGet("{id}", Detail);
         group.MapPut("{id}", Update);
         group.MapDelete("{id}", Delete);
@@ -125,7 +143,8 @@ public static class RouteEndpoints
             Name = routePlan.Name,
             CreatedAt = now,
         };
-        route.Apply(routePlan, await legs.CalculateAsync(monuments, cancellationToken), monuments.Select(m => m.City).ToArray(), now);
+        route.Apply(routePlan, await legs.CalculateAsync(monuments, cancellationToken), legs.Engine, monuments.Select(m => m.City).ToArray(),
+            now);
         db.Routes.Add(route);
         if (route.UserId is not null)
         {
@@ -137,8 +156,100 @@ public static class RouteEndpoints
         return TypedResults.Created($"routes/{route.Id}", ToResponse(route, monuments));
     }
 
-    private static async Task<IResult> Detail(string id, HttpContext context, RoutesDbContext db, ICatalogClient catalog,
+    /// <summary>
+    /// Kaydetmeden karayolu bacakları; kayıtla aynı hesap ve önbellek (sonraki kayıt anında hesaplanır). Sahiplik
+    /// yoktur, kurulum kimliği gerekmez; istemci adresi başına sınırlıdır.
+    /// </summary>
+    private static async Task<IResult> Preview(StopSequenceRequest body, HttpContext context, ICatalogClient catalog,
+        LegCalculator legs, IUsageLimiter limiter, CancellationToken cancellationToken)
+    {
+        if (await ConsumeAsync(context, limiter, "route-preview", PreviewsPerHour, cancellationToken) is { } limited)
+        {
+            return limited;
+        }
+
+        var stops = await ResolveStopsAsync(body, catalog, RequestLanguage.Resolve(context.Request), cancellationToken);
+        if (!stops.IsSuccess)
+        {
+            return stops.Error.ToHttpResult();
+        }
+
+        var calculated = await legs.CalculateAsync(stops.Value, cancellationToken);
+        return TypedResults.Ok(new RoutePreviewResponse(calculated, calculated.Sum(l => l.DistanceMeters),
+            calculated.Sum(l => l.DurationSeconds)));
+    }
+
+    private static async Task<IResult> Matrix(StopSequenceRequest body, HttpContext context, ICatalogClient catalog,
+        IRoutingEngine engine, IUsageLimiter limiter, CancellationToken cancellationToken)
+    {
+        if (await ConsumeAsync(context, limiter, "route-matrix", MatricesPerHour, cancellationToken) is { } limited)
+        {
+            return limited;
+        }
+
+        var resolved = await ResolveStopsAsync(body, catalog, RequestLanguage.Resolve(context.Request), cancellationToken);
+        if (!resolved.IsSuccess)
+        {
+            return resolved.Error.ToHttpResult();
+        }
+
+        var stops = resolved.Value;
+        var matrix = await engine.MatrixAsync(stops, cancellationToken);
+        var durations = new int[stops.Count][];
+        var distances = new int[stops.Count][];
+        for (var i = 0; i < stops.Count; i++)
+        {
+            (durations[i], distances[i]) = (new int[stops.Count], new int[stops.Count]);
+            for (var j = 0; j < stops.Count; j++)
+            {
+                var estimate = i == j || (matrix.DurationSeconds[i][j] is not null && matrix.DistanceMeters[i][j] is not null)
+                    ? null
+                    : RouteEstimate.Straight(stops[i], stops[j]);
+                durations[i][j] = matrix.DurationSeconds[i][j] ?? estimate?.DurationSeconds ?? 0;
+                distances[i][j] = matrix.DistanceMeters[i][j] ?? estimate?.DistanceMeters ?? 0;
+            }
+        }
+
+        return TypedResults.Ok(new TravelMatrixResponse(durations, distances));
+    }
+
+    private static async Task<IResult?> ConsumeAsync(HttpContext context, IUsageLimiter limiter, string name, int perHour,
         CancellationToken cancellationToken)
+    {
+        if (context.Connection.RemoteIpAddress is not { } address)
+        {
+            return null;
+        }
+
+        var quota = await limiter.TryConsumeAsync($"{name}:ip:{address}", perHour, TimeSpan.FromHours(1), cancellationToken);
+        return quota.Allowed ? null : ApiError.TooManyRequests(quota.RetryAfterSeconds).ToHttpResult();
+    }
+
+    /// <summary>Durak dizisi kuralları (2–10 tekil eser), katalogda bulunma ve konum (rota kaydıyla aynı hatalar).</summary>
+    private static async Task<Result<IReadOnlyList<CatalogMonument>>> ResolveStopsAsync(StopSequenceRequest body,
+        ICatalogClient catalog, string language, CancellationToken cancellationToken)
+    {
+        if (body.MonumentIds is not { } ids || !RoutePlanRules.IsValidStopSequence(ids))
+        {
+            return ApiError.BadRequest(ErrorCodes.InvalidRoute);
+        }
+
+        var found = await catalog.GetAsync(ids, language, cancellationToken);
+        if (ids.Any(id => !found.ContainsKey(id)))
+        {
+            return ApiError.BadRequest(ErrorCodes.InvalidRoute);
+        }
+
+        if (ids.Any(id => found[id].Location is null))
+        {
+            return ApiError.BadRequest(ErrorCodes.MonumentWithoutLocation);
+        }
+
+        return ids.Select(id => found[id]).ToArray();
+    }
+
+    private static async Task<IResult> Detail(string id, HttpContext context, RoutesDbContext db, ICatalogClient catalog,
+        LegCalculator legs, ILogger<LegCalculator> logger, CancellationToken cancellationToken)
     {
         var resolved = await OwnerScope.ResolveAsync(context, db, cancellationToken);
         if (!resolved.IsSuccess)
@@ -147,14 +258,45 @@ public static class RouteEndpoints
         }
 
         var request = context.Request;
-        var route = await resolved.Value.Routes(db.Routes.AsNoTracking()).SingleOrDefaultAsync(r => r.Id == id, cancellationToken);
+        var route = await resolved.Value.Routes(db.Routes).SingleOrDefaultAsync(r => r.Id == id, cancellationToken);
         if (route is null)
         {
             return ApiError.NotFound().ToHttpResult();
         }
 
-        var monuments = await catalog.GetAsync(route.Stops.Select(s => s.MonumentId), RequestLanguage.Resolve(request), cancellationToken);
-        return TypedResults.Ok(ToResponse(route, route.Stops.Select(s => monuments.GetValueOrDefault(s.MonumentId)).ToArray()));
+        var found = await catalog.GetAsync(route.Stops.Select(s => s.MonumentId), RequestLanguage.Resolve(request), cancellationToken);
+        var monuments = route.Stops.Select(s => found.GetValueOrDefault(s.MonumentId)).ToArray();
+        await RefreshLegsAsync(route, monuments, db, legs, logger, cancellationToken);
+        return TypedResults.Ok(ToResponse(route, monuments));
+    }
+
+    /// <summary>
+    /// Bacaklar başka motorla (eski düz çizgi tahmini, önceki OSRM verisi) veya eserin eski konumuyla
+    /// hesaplandıysa yeniden hesaplanır. Yönlendirme motoruna ulaşılamazsa kayıtlı bacaklar döner.
+    /// </summary>
+    private static async Task RefreshLegsAsync(TravelRoute route, IReadOnlyList<CatalogMonument?> monuments, RoutesDbContext db,
+        LegCalculator legs, ILogger logger, CancellationToken cancellationToken)
+    {
+        if (monuments.Any(m => m?.Point is null))
+        {
+            return;
+        }
+
+        var stops = monuments.Select(m => m!).ToArray();
+        if (route.LegsAreCurrent(stops.Select(m => m.Point!.Value).ToArray(), legs.Engine))
+        {
+            return;
+        }
+
+        try
+        {
+            route.RefreshLegs(await legs.CalculateAsync(stops, cancellationToken), legs.Engine);
+            await db.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception exception) when (exception is not OperationCanceledException)
+        {
+            logger.LogWarning(exception, "Route legs could not be refreshed; returning stored legs");
+        }
     }
 
     private static async Task<IResult> Update(string id, RoutePlanRequest body, HttpContext context, RoutesDbContext db,
@@ -180,8 +322,8 @@ public static class RouteEndpoints
         }
 
         var (routePlan, monuments) = plan.Value;
-        route.Apply(routePlan, await legs.CalculateAsync(monuments, cancellationToken), monuments.Select(m => m.City).ToArray(),
-            clock.GetUtcNow());
+        route.Apply(routePlan, await legs.CalculateAsync(monuments, cancellationToken), legs.Engine,
+            monuments.Select(m => m.City).ToArray(), clock.GetUtcNow());
         await db.SaveChangesAsync(cancellationToken);
         return TypedResults.Ok(ToResponse(route, monuments));
     }

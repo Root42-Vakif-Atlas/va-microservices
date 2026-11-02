@@ -5,6 +5,7 @@
 # Mailpit http://localhost:8025
 # RabbitMQ http://localhost:15672
 # S3 (SeaweedFS) http://localhost:8333
+# OSRM http://127.0.0.1:5001 (yönlendirme; ilk açılışta Türkiye verisini hazırlar)
 # Grafana http://localhost:3000
 # Kibana http://localhost:5601
 name: vakif-atlas
@@ -190,10 +191,63 @@ services:
         context: ../..,
         args: { PROJECT: src/Services/Routes/VakifAtlas.Routes.Api },
       }
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+      osrm: { condition: service_healthy }
     environment:
       <<: *env
       ConnectionStrings__Database: Host=postgres;Database=routes;Username=vakifatlas;Password=vakifatlas
-      Routing__Engine: fixture
+      Routing__Engine: osrm
+      Routing__OsrmUrl: http://osrm:5000/
+      # Bacak önbelleğinin ve rotaların anahtarı: OSRM verisiyle aynı değer olmalı.
+      Routing__OsrmDataVersion: ${OSRM_DATA_VERSION:-turkey-latest}
+
+  # Kurum içi karayolu yönlendirmesi (OSRM, Türkiye OSM verisi; ADR 22). İlk açılışta osrm-data veriyi indirip
+  # yol ağına süzer (~650 MB indirme), osrm onu hazırlar (birkaç dakika, tepe ~5,5 GB bellek: Docker'a en az
+  # 10 GB verin veya ilk seferde önce yalnızca osrm'i açın — README §8); sonraki açılışlar saniyeler sürer. Veriyi tazelemek için deploy/compose/.env içinde OSRM_DATA_VERSION'ı değiştirin (ör. turkey-2026-12):
+  # yeniden hazırlanır, rotaların bacakları yeni veriyle yeniden hesaplanır. Yalnızca hata ayıklama için host'a
+  # açık: http://127.0.0.1:5001.
+  osrm-data:
+    image: vakif-atlas/osrm-data:dev
+    build: { context: ./osrm, target: data }
+    environment:
+      OSRM_DATA_VERSION: ${OSRM_DATA_VERSION:-turkey-latest}
+      OSRM_PBF_URL: ${OSRM_PBF_URL:-https://download.geofabrik.de/europe/turkey-latest.osm.pbf}
+    volumes: [osrm-data:/data]
+
+  osrm:
+    image: vakif-atlas/osrm:dev
+    build: { context: ./osrm, target: server }
+    restart: unless-stopped
+    depends_on:
+      osrm-data: { condition: service_completed_successfully }
+    environment:
+      OSRM_DATA_VERSION: ${OSRM_DATA_VERSION:-turkey-latest}
+    volumes: [osrm-data:/data]
+    ports: ["127.0.0.1:5001:5000"]
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-fs",
+          "-o",
+          "/dev/null",
+          "http://127.0.0.1:5000/nearest/v1/driving/28.9784,41.0082",
+        ]
+      interval: 10s
+      timeout: 5s
+      # İlk hazırlık süresince başarısız denetim sayılmaz; hazır olunca hemen sağlıklı olur.
+      start_period: 60m
+      start_interval: 15s
+      retries: 6
+    logging:
+      driver: json-file
+      options: { max-size: "20m", max-file: "3" }
+    labels:
+      vakifatlas.logs: "true"
 
   memories:
     <<: *service
@@ -401,6 +455,7 @@ volumes:
   redis-data:
   rabbitmq-data:
   seaweedfs-data:
+  osrm-data:
   prometheus-data:
   tempo-data:
   elasticsearch-data:

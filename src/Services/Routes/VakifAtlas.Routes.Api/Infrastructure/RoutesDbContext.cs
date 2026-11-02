@@ -25,6 +25,7 @@ public sealed class RoutesDbContext(DbContextOptions<RoutesDbContext> options) :
             entity.Property(r => r.UserId).HasMaxLength(40);
             entity.Property(r => r.Name).HasMaxLength(RoutePlanRules.MaxNameLength * 2);
             entity.Property(r => r.TravelMode).HasMaxLength(20);
+            entity.Property(r => r.LegsEngine).HasMaxLength(40);
             entity.Ignore(r => r.Summary);
             entity.HasIndex(r => new { r.InstallationId, r.CreatedAt });
             entity.HasIndex(r => r.UserId).HasFilter("user_id IS NOT NULL");

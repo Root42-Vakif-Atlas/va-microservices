@@ -18,7 +18,7 @@ namespace VakifAtlas.Routes.Api.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.13")
+                .HasAnnotation("ProductVersion", "10.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -181,6 +181,11 @@ namespace VakifAtlas.Routes.Api.Infrastructure.Migrations
                     b.Property<Guid>("InstallationId")
                         .HasColumnType("uuid")
                         .HasColumnName("installation_id");
+
+                    b.Property<string>("LegsEngine")
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)")
+                        .HasColumnName("legs_engine");
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -92,5 +92,11 @@ public static class RoutePlanRules
         return null;
     }
 
+    /// <summary>Ön hesap ve matris istekleri için durak dizisi: 2–10 tekil eser.</summary>
+    public static bool IsValidStopSequence(IReadOnlyCollection<string> monumentIds) =>
+        monumentIds.Count is >= MinStops and <= MaxStops &&
+        monumentIds.All(id => !string.IsNullOrWhiteSpace(id)) &&
+        monumentIds.Distinct(StringComparer.Ordinal).Count() == monumentIds.Count;
+
     private static bool InSteps(int minutes, int min, int max) => minutes >= min && minutes <= max && minutes % Step == 0;
 }

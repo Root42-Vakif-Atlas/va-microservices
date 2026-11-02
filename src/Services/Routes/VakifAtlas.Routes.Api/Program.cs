@@ -21,6 +21,7 @@ builder.AddCatalogClient();
 
 builder.Services.Configure<RoutingOptions>(builder.Configuration.GetSection(RoutingOptions.Section));
 builder.Services.AddScoped<LegCalculator>();
+builder.Services.AddHostedService<LegBackfill>();
 if (builder.Configuration[$"{RoutingOptions.Section}:Engine"] == "osrm")
 {
     builder.Services.AddHttpClient<IRoutingEngine, OsrmRoutingEngine>((services, http) =>

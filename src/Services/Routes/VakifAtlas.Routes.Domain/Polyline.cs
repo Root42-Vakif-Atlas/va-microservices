@@ -27,8 +27,8 @@ public static class Polyline
         int previousLat = 0, previousLng = 0;
         foreach (var (latitude, longitude) in points)
         {
-            var lat = (int)Math.Round(latitude * Factor, MidpointRounding.AwayFromZero);
-            var lng = (int)Math.Round(longitude * Factor, MidpointRounding.AwayFromZero);
+            var lat = Quantize(latitude);
+            var lng = Quantize(longitude);
             Write(builder, lat - previousLat);
             Write(builder, lng - previousLng);
             (previousLat, previousLng) = (lat, lng);
@@ -38,6 +38,12 @@ public static class Polyline
     }
 
     public static string Reverse(string encoded) => Encode(Decode(encoded).Reverse());
+
+    /// <summary>İki nokta kodlama hassasiyetinde (≈1 m) aynı mı.</summary>
+    public static bool SamePoint((double Latitude, double Longitude) a, (double Latitude, double Longitude) b) =>
+        Quantize(a.Latitude) == Quantize(b.Latitude) && Quantize(a.Longitude) == Quantize(b.Longitude);
+
+    private static int Quantize(double degrees) => (int)Math.Round(degrees * Factor, MidpointRounding.AwayFromZero);
 
     private static int NextValue(string encoded, ref int index)
     {
