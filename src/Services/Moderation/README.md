@@ -259,6 +259,19 @@ python3.13 -m venv .venv && . .venv/bin/activate
 pip install -r <(python -c "import tomllib; p=tomllib.load(open('pyproject.toml','rb'))['project']; print('\n'.join(p['dependencies']+p['optional-dependencies']['dev']+p['optional-dependencies']['export']))") \
   --extra-index-url https://download.pytorch.org/whl/cpu
 curl -L -o ckpt https://github.com/unitaryai/detoxify/releases/download/v0.4-alpha/multilingual_debiased-0b549669.ckpt
+python scripts/export_onnx.py --checkpoint ckpt --out models/
+python scripts/export_vision.py --out models/ --check-images ../../../seed/bursa/images/works/bursa-ulu-camii
+python scripts/build_references.py --seed ../../../seed --models models/ --out models/references.npz
+python scripts/export_context.py --out models/
+python scripts/build_context.py --seed ../../../seed --models models/ --out models/context.npz
+MODEL_DIR=models python -m uvicorn app.main:app --port 8090
+```
+
+```bash
+python3.13 -m venv .venv && . .venv/bin/activate
+pip install -r <(python -c "import tomllib; p=tomllib.load(open('pyproject.toml','rb'))['project']; print('\n'.join(p['dependencies']+p['optional-dependencies']['dev']+p['optional-dependencies']['export']))") \
+  --extra-index-url https://download.pytorch.org/whl/cpu
+curl -L -o ckpt https://github.com/unitaryai/detoxify/releases/download/v0.4-alpha/multilingual_debiased-0b549669.ckpt
 python scripts/export_onnx.py --checkpoint ckpt --out models/      # metin; SHA-256 doğrulanır
 python scripts/export_vision.py --out models/ \
   --check-images ../../../seed/bursa/images/works/bursa-ulu-camii  # NSFW + DINOv2; torch eşitliği doğrulanır

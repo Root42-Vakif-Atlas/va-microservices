@@ -190,6 +190,28 @@ docker build --build-arg PROJECT=src/Services/Catalog/VakifAtlas.Catalog.Api -t 
 ---
 
 ## 8. Yerelde çalıştırma
+```
+cd src/Services/Moderation
+curl -L -o multilingual_debiased-0b549669.ckpt \
+  https://github.com/unitaryai/detoxify/releases/download/v0.4-alpha/multilingual_debiased-0b549669.ckpt
+python ./scripts/export_onnx.py --checkpoint multilingual_debiased-0b549669.ckpt --out models/
+python scripts/export_vision.py --out models/
+python scripts/build_references.py --seed ../../../seed --models models/ --out models/references.npz
+python scripts/export_context.py --out models/
+python scripts/build_context.py --seed ../../../seed --models models/ --out models/context.npz
+```
+
+OSRM'i önce aç (ilk kurulumda tek seferlik)
+
+Rota mesafeleri kurum içi OSRM'den gelir. İlk açılışta Türkiye yol verisini indirir (~650 MB) ve hazırlar (birkaç dakika, ~5,5 GB RAM). Docker belleği 10 GB'tan azsa ya da genel olarak güvenli olmak için bunu önce tek başına çalıştırın:
+
+```powershell
+docker compose -f deploy/compose/compose.yaml up -d --build --wait osrm
+```
+
+Bitince hazır veri `osrm-data` biriminde kalır; sonraki açılışlar saniyeler sürer.
+
+---
 
 ```bash
 docker compose -f deploy/compose/compose.yaml up -d --build --wait
@@ -370,6 +392,17 @@ python3 -I scripts/geocode_works.py seed/bursa/root42-veri.json            # den
 python3 -I scripts/geocode_works.py seed/bursa/root42-veri.json --apply    # yalnızca high + medium eşleşmeleri yazar
 ```
 
+<details><summary>Windows (PowerShell)</summary>
+
+Windows'ta `python3` yoktur; `python` (veya `py -3.13`) kullanın. Yollarda `/` PowerShell'de de çalışır.
+
+```powershell
+python -I scripts/geocode_works.py seed/bursa/root42-veri.json
+python -I scripts/geocode_works.py seed/bursa/root42-veri.json --apply
+```
+
+</details>
+
 - Önce ilin adlı dini/tarihî yapıları için tek Overpass sorgusu, kalanlar için Nominatim (sokak + kapı numarası, sonra ad). OSM kullanım politikasına uyar: ≤ 1 istek/sn, kimlik bilgisi göndermez, yanıtlar `scripts/.geocode-cache/` altında önbelleklenir (git'e girmez).
 - Güven: `high` (adı eşleşen OSM yapısı, ilçe içinde), `medium` (gevşek ad eşleşmesi veya tam sokak + kapı no), `low` (belirsiz; yalnızca raporlanır), `none`. Var olan `location` ezilmez.
 - `scripts/nominatim_locations.py`: yalnızca Nominatim kullanan, daha basit alternatif (`--suffix <il>`); **var olan konumun üzerine yazar**.
@@ -384,6 +417,22 @@ STAFF_TOTP_SECRET=JBSWY3DPEHPK3PXPJBSWY3DPEHPK3PXP \
   python3 -I scripts/import_vgm.py seed/bursa/root42-veri.json            # yalnızca plan
   python3 -I scripts/import_vgm.py seed/bursa/root42-veri.json --commit   # yazar
 ```
+
+<details><summary>Windows (PowerShell)</summary>
+
+Ortam değişkenleri `VAR=değer komut` biçiminde verilemez; önce `$env:` ile atanır (yalnızca o PowerShell penceresinde geçerlidir).
+
+```powershell
+$env:STAFF_EMAIL = 'katalog@vakifatlas.dev'
+$env:STAFF_PASSWORD = 'VgmPersonel2026!'
+$env:STAFF_TOTP_SECRET = 'JBSWY3DPEHPK3PXPJBSWY3DPEHPK3PXP'
+python -I scripts/import_vgm.py seed/bursa/root42-veri.json            # yalnızca plan
+python -I scripts/import_vgm.py seed/bursa/root42-veri.json --commit   # yazar
+```
+
+`cmd.exe` için: `set STAFF_EMAIL=...` satırları, ardından aynı `python -I ...` komutu (değerleri tırnaksız yazın).
+
+</details>
 
 Kimlik bilgileri ortam değişkeninden okunur (`STAFF_TOTP_CODE` ile tek seferlik kod da verilebilir). Adımlar:
 
@@ -406,6 +455,20 @@ docker compose -f deploy/compose/compose.yaml run --rm --no-deps \
   -v "$PWD/seed/bursa:/seed/bursa:ro" \
   catalog import /seed/bursa/root42-veri.json
 ```
+
+<details><summary>Windows (PowerShell)</summary>
+
+`$PWD` yerine `${PWD}` kullanılır; Docker Desktop'ta (WSL 2 arka ucu) sürücü paylaşımı açıktır, proje klasörü `C:\` altındaysa ek ayar gerekmez.
+
+```powershell
+docker compose -f deploy/compose/compose.yaml run --rm --no-deps `
+  -v "${PWD}/seed/bursa:/seed/bursa:ro" `
+  catalog import /seed/bursa/root42-veri.json
+```
+
+(`cmd.exe`'de satır devamı `^`, `${PWD}` yerine `%cd%`.)
+
+</details>
 
 Başarılı çıktı: `Imported 340 works (340 new), 11 complexes (11 new); catalog version …`
 
@@ -619,6 +682,25 @@ python scripts/export_context.py --out models/                                  
 python scripts/build_context.py --seed ../../../seed --models models/ --out models/context.npz
 ```
 
+<details><summary>Windows (PowerShell)</summary>
+
+Betikler **Python ≥ 3.13** ister (`pyproject.toml`). Docker içindeki derleme kendi `python:3.13` imajını kullanır; ana makinedeki sürüm yalnızca bu host komutları için önemlidir.
+
+```powershell
+cd src/Services/Moderation
+py -3.13 -m venv .venv
+.venv\Scripts\Activate.ps1          # izin hatası verirse: Set-ExecutionPolicy -Scope Process RemoteSigned
+python -c "import tomllib; p = tomllib.load(open('pyproject.toml','rb'))['project']; print('\n'.join(p['dependencies'] + p['optional-dependencies']['dev'] + p['optional-dependencies']['export']))" > requirements.txt
+pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt
+python scripts/export_onnx.py --checkpoint <detoxify.ckpt> --out models/
+python scripts/export_vision.py --out models/
+python scripts/build_references.py --seed ../../../seed --models models/ --out models/references.npz
+python scripts/export_context.py --out models/
+python scripts/build_context.py --seed ../../../seed --models models/ --out models/context.npz
+```
+
+</details>
+
 **Yeni şehir eklendiğinde** iki indeks de yeniden üretilmeli: `seed/`'e ekleyin, ardından imajı yeniden derleyin ya da yalnızca `build_references.py` ve `build_context.py` komutlarını çalıştırın. İndekste olmayan eser için fotoğraf benzerliği kuralı uygulanmaz (`similarity: null`) ve metin bağlamı yalnızca anı türüne göre ölçülür (`monumentRelevance: null`). Böylece anı haksız yere incelemeye düşmez.
 
 ### Modelleri tek başına test etmek
@@ -638,6 +720,18 @@ pytest -q                                                                       
 ```
 
 `MODEL_DIR` verilmezse gerçek model gerektiren testler atlanır, yalnızca sahte modelli birim testler koşar.
+
+<details><summary>Windows (PowerShell)</summary>
+
+```powershell
+cd src/Services/Moderation
+.venv\Scripts\Activate.ps1
+$env:MODEL_DIR = 'models'
+$env:SEED_DIR = '../../../seed'
+pytest -q
+```
+
+</details>
 
 **2. Servisi tek başına çalıştırıp `curl` ile deneme:**
 
@@ -663,6 +757,27 @@ IMG=$(base64 -i seed/bursa/images/works/yesil-camii/2.jpg | tr -d '\n')
 curl -s localhost:8090/v1/moderate -H 'Content-Type: application/json' \
   -d "{\"monumentId\":\"yesil-camii\",\"images\":[{\"id\":\"p1\",\"data\":\"$IMG\"}]}"
 ```
+
+<details><summary>Windows (PowerShell)</summary>
+
+PowerShell'de `curl` bir takma addır (`Invoke-WebRequest`); bu yüzden `Invoke-RestMethod` ve tırnak sorunu olmayan nesne gövdesi kullanılır.
+
+```powershell
+$env:MODEL_DIR = 'models'
+python -m uvicorn app.main:app --port 8090            # venv etkinken, Docker'sız
+
+Invoke-RestMethod http://localhost:8090/v1/model
+
+$body = @{ texts = @(@{ id = 't'; text = 'Siktir git lan buradan' }) } | ConvertTo-Json -Depth 5
+Invoke-RestMethod http://localhost:8090/v1/moderate -Method Post -ContentType 'application/json; charset=utf-8' -Body $body
+
+# fotoğraf + eser
+$img = [Convert]::ToBase64String([IO.File]::ReadAllBytes("$PWD/seed/bursa/images/works/yesil-camii/2.jpg"))
+$body = @{ monumentId = 'yesil-camii'; images = @(@{ id = 'p1'; data = $img }) } | ConvertTo-Json -Depth 5
+Invoke-RestMethod http://localhost:8090/v1/moderate -Method Post -ContentType 'application/json' -Body $body
+```
+
+</details>
 
 **3. Kalibrasyon betikleri** — modellerin kendi verinizdeki skor dağılımını yeniden ölçer ve eşiklerin kaynağı olan dosyaları yazar:
 
