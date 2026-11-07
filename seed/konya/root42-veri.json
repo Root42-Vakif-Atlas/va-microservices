@@ -33,7 +33,11 @@
         "sinan-pasa-turbesi",
         "hurrem-pasa-turbesi",
         "hasan-pasa-turbesi"
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "esrefoglu-suleyman-bey-kulliyesi",
@@ -76,7 +80,11 @@
         "beysehir-esrefoglu-suleyman-bey-turbesi",
         "beysehir-esrefoglu-suleyman-bey-hamami",
         "beysehir-esrefoglu-bedesteni"
-      ]
+      ],
+      "location": {
+        "lat": 37.6761341,
+        "lng": 31.736647
+      }
     },
     {
       "key": "sultan-ii-selim-kulliyesi",
@@ -133,7 +141,11 @@
         "karapinar-sultan-ii-selim-kulliyesi-cesmesi",
         "karapinar-sultan-ii-selim-kulliyesi-arastasi",
         "karapinar-sultan-ii-selim-kulliyesi-han"
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "lala-mustafa-pasa-kulliyesi",
@@ -172,7 +184,11 @@
         "ilgin-lala-mustafa-pasa-kulliyesi-arasta",
         "ilgin-lala-mustafa-pasa-kulliyesi-tabhane",
         "ilgin-lala-mustafa-pasa-kulliyesi-medrese-sibyan-mektebi"
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     }
   ],
   "works": [
@@ -265,7 +281,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "hz-mevlana-turbesi-kubbe-i-hadra-muze",
@@ -382,7 +402,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-semahane",
@@ -434,7 +458,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-mescit",
@@ -551,7 +579,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-mutfak-matbah-i-serif-daruzziyafe",
@@ -655,7 +687,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-meydan-i-serif-odasi-kutuphane",
@@ -707,7 +743,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-dervis-hucreleri-odalari",
@@ -785,7 +825,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-sadirvani",
@@ -863,7 +907,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mevlana-celebi-evi-misafirhane",
@@ -915,7 +963,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "murat-pasa-kizi-fatma-hatun-turbesi",
@@ -1006,7 +1058,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "mehmet-bey-turbesi",
@@ -1071,7 +1127,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "ahmet-eflaki-dede-turbesi",
@@ -1123,7 +1183,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "sinan-pasa-turbesi",
@@ -1177,8 +1241,8 @@
         }
       ],
       "location": {
-        "lat": 37.870469,
-        "lng": 32.504805
+        "lat": 37.870962,
+        "lng": 32.5057106
       }
     },
     {
@@ -1257,7 +1321,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870962,
+        "lng": 32.5057106
+      }
     },
     {
       "key": "hasan-pasa-turbesi",
@@ -1363,8 +1431,8 @@
         }
       ],
       "location": {
-        "lat": 37.870518,
-        "lng": 32.504892
+        "lat": 37.870962,
+        "lng": 32.5057106
       }
     },
     {
@@ -1497,8 +1565,8 @@
         }
       ],
       "location": {
-        "lat": 37.869256,
-        "lng": 32.500133
+        "lat": 37.8692561,
+        "lng": 32.5001332
       }
     },
     {
@@ -1579,8 +1647,8 @@
         }
       ],
       "location": {
-        "lat": 37.870173,
-        "lng": 32.498241
+        "lat": 37.8701727,
+        "lng": 32.4982409
       }
     },
     {
@@ -1646,7 +1714,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8706656,
+        "lng": 32.4910607
+      }
     },
     {
       "key": "karakurt-camii",
@@ -1726,8 +1798,8 @@
         }
       ],
       "location": {
-        "lat": 37.865625,
-        "lng": 32.498641
+        "lat": 37.8656249,
+        "lng": 32.4986405
       }
     },
     {
@@ -1793,7 +1865,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86640999999999,
+        "lng": 32.4969109
+      }
     },
     {
       "key": "furgan-dede-mescidi",
@@ -1858,7 +1934,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8665188,
+        "lng": 32.4924608
+      }
     },
     {
       "key": "anber-reis-feridiye-camii",
@@ -1962,7 +2042,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8689675,
+        "lng": 32.4851269
+      }
     },
     {
       "key": "seyh-ebul-vefa-camii",
@@ -2029,8 +2113,8 @@
         }
       ],
       "location": {
-        "lat": 37.855117,
-        "lng": 32.420912
+        "lat": 37.8551175,
+        "lng": 32.4209124
       }
     },
     {
@@ -2096,7 +2180,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.853865,
+        "lng": 32.426999
+      }
     },
     {
       "key": "askan-camii",
@@ -2161,7 +2249,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8661843,
+        "lng": 32.4424773
+      }
     },
     {
       "key": "ekmekkocu-mescidi",
@@ -2226,7 +2318,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.832709,
+        "lng": 32.4995908
+      }
     },
     {
       "key": "buyukkovanagzi-haci-haydar-efendi-camii",
@@ -2291,7 +2387,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8500417,
+        "lng": 32.4653583
+      }
     },
     {
       "key": "yukari-camii-ve-haziresi-saglik-beldesi",
@@ -2369,7 +2469,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5805763,
+        "lng": 32.2429472
+      }
     },
     {
       "key": "karaagac-koyu-camii",
@@ -2434,7 +2538,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.62982,
+        "lng": 32.371406
+      }
     },
     {
       "key": "dayhane-camii-ve-mustemilati",
@@ -2499,7 +2607,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5807405,
+        "lng": 32.2432419
+      }
     },
     {
       "key": "sadreddin-konevi-camii",
@@ -2642,7 +2754,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8692337,
+        "lng": 32.4826458
+      }
     },
     {
       "key": "karatay-emir-kemalettin-mescidi",
@@ -2722,8 +2838,8 @@
         }
       ],
       "location": {
-        "lat": 37.872023,
-        "lng": 32.465893
+        "lat": 37.905274,
+        "lng": 32.519187
       }
     },
     {
@@ -2804,8 +2920,8 @@
         }
       ],
       "location": {
-        "lat": 37.871971,
-        "lng": 32.466534
+        "lat": 37.873928,
+        "lng": 32.5025561
       }
     },
     {
@@ -2899,8 +3015,8 @@
         }
       ],
       "location": {
-        "lat": 37.865693,
-        "lng": 32.496812
+        "lat": 37.8656934,
+        "lng": 32.4968116
       }
     },
     {
@@ -2968,8 +3084,8 @@
         }
       ],
       "location": {
-        "lat": 37.869274,
-        "lng": 32.48864
+        "lat": 37.8692744,
+        "lng": 32.4886397
       }
     },
     {
@@ -3074,7 +3190,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86997540000001,
+        "lng": 32.4910727
+      }
     },
     {
       "key": "tahir-ile-zuhre-don-baba-pir-ahi-sultan-mescit-ve-turbesi",
@@ -3152,7 +3272,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "hoca-hasan-camii",
@@ -3230,7 +3354,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.87032140000001,
+        "lng": 32.4860176
+      }
     },
     {
       "key": "abdulmumin-yediler-megaribe-mescidi-ve-mezari",
@@ -3308,7 +3436,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "gokyurt-koyu-camii",
@@ -3373,7 +3505,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.665375,
+        "lng": 32.209048
+      }
     },
     {
       "key": "tellioglu-sungurbey-camii",
@@ -3438,7 +3574,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "sahip-ata-larende-camii",
@@ -3555,7 +3695,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8678568,
+        "lng": 32.494187
+      }
     },
     {
       "key": "meram-kapu-kapi-ihyaiyye-camii",
@@ -3750,7 +3894,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8698905,
+        "lng": 32.4993181
+      }
     },
     {
       "key": "meram-haci-hasan-camii",
@@ -3867,7 +4015,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.5204554,
+        "lng": 33.0376668
+      }
     },
     {
       "key": "seyh-osman-rumi-camii",
@@ -3945,7 +4097,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8697519,
+        "lng": 32.4919858
+      }
     },
     {
       "key": "ihtiyarettin-mescidi",
@@ -4023,7 +4179,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8682921,
+        "lng": 32.4954877
+      }
     },
     {
       "key": "iplikci-altinapa-camii",
@@ -4101,7 +4261,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.846805,
+        "lng": 32.4452272
+      }
     },
     {
       "key": "tarhana-mescidi",
@@ -4181,8 +4345,8 @@
         }
       ],
       "location": {
-        "lat": 37.863642,
-        "lng": 32.498871
+        "lat": 37.8636418,
+        "lng": 32.4988715
       }
     },
     {
@@ -4248,7 +4412,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8720001,
+        "lng": 32.4952972
+      }
     },
     {
       "key": "kadi-mursel-camii",
@@ -4313,7 +4481,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870967,
+        "lng": 32.494038
+      }
     },
     {
       "key": "salih-pasa-dedemoglu-camii",
@@ -4391,7 +4563,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.863056,
+        "lng": 32.500458
+      }
     },
     {
       "key": "aksinne-kumbetli-gunbentli-mescidi",
@@ -4456,7 +4632,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8609211,
+        "lng": 32.4901973
+      }
     },
     {
       "key": "nasuh-bey-camii-canbazzade-nasuh-bey-daru-l-huffazi",
@@ -4534,7 +4714,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86987,
+        "lng": 32.4900292
+      }
     },
     {
       "key": "yolcuoglu-gazioglu-camii",
@@ -4612,7 +4796,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.861628,
+        "lng": 32.4977512
+      }
     },
     {
       "key": "gurb-i-cedidi-kosova-mescidi",
@@ -4690,7 +4878,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "kalecik-mescidi",
@@ -4781,7 +4973,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "emir-halil-camii",
@@ -4861,8 +5057,8 @@
         }
       ],
       "location": {
-        "lat": 37.863676,
-        "lng": 32.494322
+        "lat": 37.8636764,
+        "lng": 32.4943218
       }
     },
     {
@@ -4928,7 +5124,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8633757,
+        "lng": 32.4976431
+      }
     },
     {
       "key": "asagi-mahalle-kiziloren-kandemir-mescidi",
@@ -4993,7 +5193,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.856889,
+        "lng": 32.4054026
+      }
     },
     {
       "key": "fahrunnisa-caybasi-mescit-ve-turbesi",
@@ -5084,7 +5288,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8606831,
+        "lng": 32.4969606
+      }
     },
     {
       "key": "hasbey-dar-ul-huffaz-mescidi",
@@ -5177,8 +5385,8 @@
         }
       ],
       "location": {
-        "lat": 37.852359,
-        "lng": 32.420236
+        "lat": 37.8700765,
+        "lng": 32.494087
       }
     },
     {
@@ -5257,7 +5465,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8702415,
+        "lng": 32.4957562
+      }
     },
     {
       "key": "kurkcu-mescidi",
@@ -5376,8 +5588,8 @@
         }
       ],
       "location": {
-        "lat": 37.87124,
-        "lng": 32.495465
+        "lat": 37.8712399,
+        "lng": 32.4954652
       }
     },
     {
@@ -5550,8 +5762,8 @@
         }
       ],
       "location": {
-        "lat": 37.870397,
-        "lng": 32.504136
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
       }
     },
     {
@@ -5630,7 +5842,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8304278,
+        "lng": 32.9929896
+      }
     },
     {
       "key": "dolap-battal-mescidi",
@@ -5695,7 +5911,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8721603,
+        "lng": 32.5107034
+      }
     },
     {
       "key": "haci-veyis-camii-ve-cesmesi",
@@ -5839,7 +6059,11 @@
             }
           ]
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8705556,
+        "lng": 32.5108333
+      }
     },
     {
       "key": "selahaddin-kececiler-camii",
@@ -5891,7 +6115,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.879403,
+        "lng": 32.5051222
+      }
     },
     {
       "key": "karacihan-camii",
@@ -5956,7 +6184,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8591106,
+        "lng": 32.47193
+      }
     },
     {
       "key": "garip-nasrullah-camii",
@@ -6060,7 +6292,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8859917,
+        "lng": 32.527875
+      }
     },
     {
       "key": "haci-omerler-camii",
@@ -6127,8 +6363,8 @@
         }
       ],
       "location": {
-        "lat": 37.864791,
-        "lng": 32.507845
+        "lat": 37.8647909,
+        "lng": 32.5078448
       }
     },
     {
@@ -6194,7 +6430,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.183387,
+        "lng": 33.179644
+      }
     },
     {
       "key": "civiloglu-camii",
@@ -6298,7 +6538,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.867951,
+        "lng": 32.5020938
+      }
     },
     {
       "key": "burhan-dede-camii",
@@ -6363,7 +6607,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.861579,
+        "lng": 32.502552
+      }
     },
     {
       "key": "igdeli-sultan-camii",
@@ -6428,7 +6676,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8808999,
+        "lng": 32.449926
+      }
     },
     {
       "key": "karakayis-sari-camii",
@@ -6519,7 +6771,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.882984,
+        "lng": 32.500373
+      }
     },
     {
       "key": "tahtali-mescidi",
@@ -6584,7 +6840,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.905274,
+        "lng": 32.519187
+      }
     },
     {
       "key": "durak-fakih-camii",
@@ -6651,8 +6911,8 @@
         }
       ],
       "location": {
-        "lat": 37.873059,
-        "lng": 32.505189
+        "lat": 37.8730595,
+        "lng": 32.5051889
       }
     },
     {
@@ -6731,7 +6991,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2816183,
+        "lng": 31.918011
+      }
     },
     {
       "key": "toraman-mescidi",
@@ -6822,7 +7086,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.905274,
+        "lng": 32.519187
+      }
     },
     {
       "key": "sarnic-camii",
@@ -6887,7 +7155,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8765464,
+        "lng": 32.5120106
+      }
     },
     {
       "key": "araplar-ak-camii",
@@ -6980,8 +7252,8 @@
         }
       ],
       "location": {
-        "lat": 37.889538,
-        "lng": 32.507434
+        "lat": 37.8895379,
+        "lng": 32.5074342
       }
     },
     {
@@ -7061,7 +7333,11 @@
             }
           ]
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8773452,
+        "lng": 32.5049797
+      }
     },
     {
       "key": "muftu-abdullah-mescidi",
@@ -7126,7 +7402,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8744254,
+        "lng": 32.5058268
+      }
     },
     {
       "key": "ovaloglu-celik-mehmet-pasa-camii",
@@ -7217,7 +7497,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8681103,
+        "lng": 32.5041081
+      }
     },
     {
       "key": "kinaci-camii-mescit",
@@ -7308,7 +7592,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8656268,
+        "lng": 32.5406654
+      }
     },
     {
       "key": "meydan-i-ahmet-camii",
@@ -7399,7 +7687,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.865935,
+        "lng": 32.4930417
+      }
     },
     {
       "key": "kadi-izzettin-karpuzoglu-camii",
@@ -7503,7 +7795,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.876842,
+        "lng": 32.4947261
+      }
     },
     {
       "key": "sitte-i-banu-mescidi",
@@ -7568,7 +7864,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8752669,
+        "lng": 32.4973386
+      }
     },
     {
       "key": "hatuniye-guduk-minare-akincilar-mahmut-mescidi",
@@ -7633,7 +7933,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
+      }
     },
     {
       "key": "sems-i-tebrizi-camii-ve-turbesi",
@@ -7857,8 +8161,8 @@
         }
       ],
       "location": {
-        "lat": 37.873682,
-        "lng": 32.497553
+        "lat": 37.873679,
+        "lng": 32.4975319
       }
     },
     {
@@ -7976,7 +8280,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8716112,
+        "lng": 32.5040429
+      }
     },
     {
       "key": "cimilli-sari-mescidi",
@@ -8041,7 +8349,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.905274,
+        "lng": 32.519187
+      }
     },
     {
       "key": "zenburi-mescidi",
@@ -8106,7 +8418,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8757255,
+        "lng": 32.4977778
+      }
     },
     {
       "key": "ickaraarslan-mescidi",
@@ -8171,7 +8487,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8743423,
+        "lng": 32.499222
+      }
     },
     {
       "key": "sari-yakup-camii",
@@ -8301,7 +8621,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.863739,
+        "lng": 32.502316
+      }
     },
     {
       "key": "haci-mustafa-aga-koprubasi-mustafa-aga-camii",
@@ -8366,7 +8690,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
+      }
     },
     {
       "key": "asmali-hatip-sultan-mescidi",
@@ -8431,7 +8759,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.872001,
+        "lng": 32.505538
+      }
     },
     {
       "key": "pisili-pir-esat-mescit-ve-turbesi",
@@ -8575,7 +8907,11 @@
             }
           ]
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
+      }
     },
     {
       "key": "mengene-camii",
@@ -8655,8 +8991,8 @@
         }
       ],
       "location": {
-        "lat": 37.845804,
-        "lng": 32.515219
+        "lat": 37.8458039,
+        "lng": 32.5152185
       }
     },
     {
@@ -8737,8 +9073,8 @@
         }
       ],
       "location": {
-        "lat": 37.886484,
-        "lng": 32.50747
+        "lat": 37.8971973,
+        "lng": 32.4478304
       }
     },
     {
@@ -8817,7 +9153,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.887902,
+        "lng": 32.5077142
+      }
     },
     {
       "key": "dolap-mektep-mescidi",
@@ -8910,8 +9250,8 @@
         }
       ],
       "location": {
-        "lat": 37.871195,
-        "lng": 32.509522
+        "lat": 37.8711955,
+        "lng": 32.5095217
       }
     },
     {
@@ -9016,7 +9356,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
+      }
     },
     {
       "key": "seyh-ulema-recep-aga-camii",
@@ -9094,7 +9438,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8777208,
+        "lng": 32.5273794
+      }
     },
     {
       "key": "yanik-sedirler-kenan-dede-camii",
@@ -9159,7 +9507,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8846128,
+        "lng": 32.5185601
+      }
     },
     {
       "key": "digin-camii",
@@ -9224,7 +9576,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.88389129999999,
+        "lng": 32.5081899
+      }
     },
     {
       "key": "hamzaoglu-camii",
@@ -9289,7 +9645,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8623876,
+        "lng": 32.5099799
+      }
     },
     {
       "key": "hanedan-camii",
@@ -9354,7 +9714,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.870043,
+        "lng": 32.52209
+      }
     },
     {
       "key": "cayir-camii",
@@ -9419,7 +9783,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7985212,
+        "lng": 33.6998905
+      }
     },
     {
       "key": "haci-ivaz-camii",
@@ -9486,8 +9854,8 @@
         }
       ],
       "location": {
-        "lat": 37.878131,
-        "lng": 32.514448
+        "lat": 37.8781306,
+        "lng": 32.5144482
       }
     },
     {
@@ -9566,7 +9934,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.894156,
+        "lng": 32.530285
+      }
     },
     {
       "key": "cataloglu-camii",
@@ -9631,7 +10003,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.881439,
+        "lng": 32.5177229
+      }
     },
     {
       "key": "topraklik-hasan-efendi-camii",
@@ -9709,7 +10085,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
+      }
     },
     {
       "key": "cavusoglu-camii",
@@ -9774,7 +10154,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2851548,
+        "lng": 31.9253097
+      }
     },
     {
       "key": "namik-pasa-camii",
@@ -9878,7 +10262,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.87216,
+        "lng": 32.511726
+      }
     },
     {
       "key": "halkabegus-mescidi-ve-turbesi",
@@ -9943,7 +10331,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8359747,
+        "lng": 32.4831885
+      }
     },
     {
       "key": "tolluoglu-camii",
@@ -10008,7 +10400,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.866102,
+        "lng": 32.5019941
+      }
     },
     {
       "key": "seyh-ulema-yusuf-aga-camii",
@@ -10073,7 +10469,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.875181,
+        "lng": 32.5141981
+      }
     },
     {
       "key": "aziziye-camii",
@@ -10257,8 +10657,8 @@
         }
       ],
       "location": {
-        "lat": 37.869981,
-        "lng": 32.500798
+        "lat": 37.8699811,
+        "lng": 32.5007976
       }
     },
     {
@@ -10415,7 +10815,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.98203609999999,
+        "lng": 32.5159609
+      }
     },
     {
       "key": "ak-sazi-bey-camii",
@@ -10480,7 +10884,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.871799,
+        "lng": 32.530704
+      }
     },
     {
       "key": "sakahane-hidir-ilyas-davut-aga-mescidi",
@@ -10547,8 +10955,8 @@
         }
       ],
       "location": {
-        "lat": 37.87511,
-        "lng": 32.491379
+        "lat": 37.98203609999999,
+        "lng": 32.5159609
       }
     },
     {
@@ -10616,8 +11024,8 @@
         }
       ],
       "location": {
-        "lat": 37.873365,
-        "lng": 32.489097
+        "lat": 37.8733648,
+        "lng": 32.4890972
       }
     },
     {
@@ -10698,8 +11106,8 @@
         }
       ],
       "location": {
-        "lat": 38.002623,
-        "lng": 32.237879
+        "lat": 38.003321,
+        "lng": 32.238037
       }
     },
     {
@@ -10791,7 +11199,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.9545167,
+        "lng": 32.3623916
+      }
     },
     {
       "key": "beyhekim-mescit-ve-turbesi",
@@ -10882,7 +11294,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "sultan-alaeddin-ulu-camii",
@@ -11118,8 +11534,8 @@
         }
       ],
       "location": {
-        "lat": 37.190665,
-        "lng": 32.244417
+        "lat": 37.92972100000001,
+        "lng": 32.5054829
       }
     },
     {
@@ -11172,7 +11588,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0160383,
+        "lng": 32.4920088
+      }
     },
     {
       "key": "kurucay-eski-camii",
@@ -11237,7 +11657,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "avdan-beldesi-buyuk-eski-camii",
@@ -11302,7 +11726,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.288231,
+        "lng": 32.30688
+      }
     },
     {
       "key": "buyuk-camii",
@@ -11395,8 +11823,8 @@
         }
       ],
       "location": {
-        "lat": 37.453205,
-        "lng": 32.371468
+        "lat": 37.4532053,
+        "lng": 32.3714676
       }
     },
     {
@@ -11514,7 +11942,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3591429,
+        "lng": 31.4082336
+      }
     },
     {
       "key": "cinaralti-camii",
@@ -11607,8 +12039,8 @@
         }
       ],
       "location": {
-        "lat": 38.355489,
-        "lng": 31.40865
+        "lat": 38.3554894,
+        "lng": 31.4086501
       }
     },
     {
@@ -11713,7 +12145,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.349868,
+        "lng": 31.468461
+      }
     },
     {
       "key": "ferruhsah-seyit-mahmut-hayrani-mescidi",
@@ -11765,7 +12201,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.355266,
+        "lng": 31.407743
+      }
     },
     {
       "key": "guduk-minare-camii",
@@ -11859,7 +12299,7 @@
       ],
       "location": {
         "lat": 38.357225,
-        "lng": 31.409535
+        "lng": 31.4095346
       }
     },
     {
@@ -11951,7 +12391,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3604993,
+        "lng": 31.4060572
+      }
     },
     {
       "key": "hidirlik-hizirlik-hidir-dede-mescidi",
@@ -12044,8 +12488,8 @@
         }
       ],
       "location": {
-        "lat": 38.348762,
-        "lng": 31.414795
+        "lat": 38.3676858,
+        "lng": 31.4271856
       }
     },
     {
@@ -12230,8 +12674,8 @@
         }
       ],
       "location": {
-        "lat": 38.354763,
-        "lng": 31.416108
+        "lat": 38.3547604,
+        "lng": 31.416153
       }
     },
     {
@@ -12429,8 +12873,8 @@
         }
       ],
       "location": {
-        "lat": 38.357818,
-        "lng": 31.413318
+        "lat": 38.357999,
+        "lng": 31.413186
       }
     },
     {
@@ -12511,7 +12955,7 @@
         }
       ],
       "location": {
-        "lat": 38.355687,
+        "lat": 38.3556866,
         "lng": 31.412348
       }
     },
@@ -12578,7 +13022,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.352341,
+        "lng": 31.4109698
+      }
     },
     {
       "key": "kileci-mescidi",
@@ -12721,7 +13169,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.35442099999999,
+        "lng": 31.4139611
+      }
     },
     {
       "key": "kucuk-ayasofya-mescidi",
@@ -12851,7 +13303,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3596271,
+        "lng": 31.407649
+      }
     },
     {
       "key": "ortakoy-beldesi-merkez-camii",
@@ -12942,7 +13398,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.459035,
+        "lng": 31.512291
+      }
     },
     {
       "key": "tahtakale-mescidi",
@@ -13072,7 +13532,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3596271,
+        "lng": 31.407649
+      }
     },
     {
       "key": "ulu-sultan-alaattin-camii",
@@ -13269,8 +13733,8 @@
         }
       ],
       "location": {
-        "lat": 38.356283,
-        "lng": 31.411408
+        "lat": 38.3559421,
+        "lng": 31.4091794
       }
     },
     {
@@ -13375,7 +13839,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8681103,
+        "lng": 32.5041081
+      }
     },
     {
       "key": "bayindir-koyu-camii",
@@ -13531,7 +13999,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7200149,
+        "lng": 31.778193
+      }
     },
     {
       "key": "cuma-orta-camii",
@@ -13609,7 +14081,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.679796,
+        "lng": 31.724299
+      }
     },
     {
       "key": "demirli-mescit",
@@ -13687,7 +14163,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6837243,
+        "lng": 31.7167106
+      }
     },
     {
       "key": "emen-eski-camii",
@@ -13765,7 +14245,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.799799,
+        "lng": 31.77373699999999
+      }
     },
     {
       "key": "gedik-ahmet-pasa-camii",
@@ -13832,8 +14316,8 @@
         }
       ],
       "location": {
-        "lat": 37.581092,
-        "lng": 31.585012
+        "lat": 37.5810922,
+        "lng": 31.5850122
       }
     },
     {
@@ -13925,7 +14409,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.9738768,
+        "lng": 32.5216097
+      }
     },
     {
       "key": "hizir-ali-pasa-bayafsar-camii",
@@ -14029,7 +14517,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5806002,
+        "lng": 31.7998704
+      }
     },
     {
       "key": "lutfullah-carsi-camii-minaresi",
@@ -14094,7 +14586,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.678966,
+        "lng": 31.7244308
+      }
     },
     {
       "key": "hisarlik-beldesi-asarlik-camii",
@@ -14198,7 +14694,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.15336509999999,
+        "lng": 32.3447609
+      }
     },
     {
       "key": "siristat-buyuk-camii",
@@ -14315,7 +14815,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.856616,
+        "lng": 32.477162
+      }
     },
     {
       "key": "sogut-buyuk-cami",
@@ -14432,7 +14936,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.856616,
+        "lng": 32.477162
+      }
     },
     {
       "key": "ucpinar-beldesi-kursunlu-camii",
@@ -14562,7 +15070,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.821911,
+        "lng": 31.827741
+      }
     },
     {
       "key": "ulu-carsi-merkez-camii",
@@ -14731,7 +15243,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "karamanoglu-ibrahim-bey-camii",
@@ -14861,7 +15377,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "ciftlikozu-beldesi-camii",
@@ -14952,7 +15472,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.9553,
+        "lng": 31.927057
+      }
     },
     {
       "key": "baskoy-ulu-camii",
@@ -15043,7 +15567,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.1417527,
+        "lng": 31.7565051
+      }
     },
     {
       "key": "karaaga-beldesi-eski-ulu-camii",
@@ -15175,8 +15703,8 @@
         }
       ],
       "location": {
-        "lat": 38.184431,
-        "lng": 31.606284
+        "lat": 37.8746429,
+        "lng": 32.4931554
       }
     },
     {
@@ -15242,7 +15770,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.9274763,
+        "lng": 32.4160543
+      }
     },
     {
       "key": "pazar-carsi-camii",
@@ -15307,7 +15839,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "ayaslar-ulu-yukari-camii",
@@ -15374,8 +15910,8 @@
         }
       ],
       "location": {
-        "lat": 38.114756,
-        "lng": 31.731536
+        "lat": 38.1199299,
+        "lng": 31.734035
       }
     },
     {
@@ -15521,8 +16057,8 @@
         }
       ],
       "location": {
-        "lat": 38.184431,
-        "lng": 31.606284
+        "lat": 38.3562833,
+        "lng": 31.4114077
       }
     },
     {
@@ -15642,8 +16178,8 @@
         }
       ],
       "location": {
-        "lat": 38.146008,
-        "lng": 31.675427
+        "lat": 38.1460084,
+        "lng": 31.6754267
       }
     },
     {
@@ -15748,7 +16284,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5151723,
+        "lng": 34.048131
+      }
     },
     {
       "key": "buyukdede-taskilise-camii",
@@ -15891,7 +16431,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.414197,
+        "lng": 34.13162
+      }
     },
     {
       "key": "kutoren-eski-camii",
@@ -15982,7 +16526,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.857205,
+        "lng": 33.944482
+      }
     },
     {
       "key": "ulu-kible-camii",
@@ -16047,7 +16595,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5317118,
+        "lng": 34.076431
+      }
     },
     {
       "key": "zengen-beldesi-eski-camii",
@@ -16177,7 +16729,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.512316,
+        "lng": 34.048806
+      }
     },
     {
       "key": "cavus-eski-merkez-cami",
@@ -16270,8 +16826,8 @@
         }
       ],
       "location": {
-        "lat": 37.962956,
-        "lng": 31.563775
+        "lat": 37.9472688,
+        "lng": 32.4963034
       }
     },
     {
@@ -16350,7 +16906,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.889686,
+        "lng": 31.576174
+      }
     },
     {
       "key": "beykonak-dedigi-sultan-mescit-ve-tekkesi",
@@ -16493,7 +17053,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.1739261,
+        "lng": 32.0559577
+      }
     },
     {
       "key": "behlul-bey-camii",
@@ -16584,7 +17148,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.259786,
+        "lng": 31.9046407
+      }
     },
     {
       "key": "fazil-camii",
@@ -16675,7 +17243,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0584431,
+        "lng": 31.8903098
+      }
     },
     {
       "key": "ibrahim-pasa-camii-argithani",
@@ -16766,7 +17338,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.290581,
+        "lng": 31.7137445
+      }
     },
     {
       "key": "pir-huseyin-ulu-cukur-camii",
@@ -16870,7 +17446,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.281572,
+        "lng": 31.917907
+      }
     },
     {
       "key": "sihcarullah-zincirli-camii",
@@ -16937,8 +17517,8 @@
         }
       ],
       "location": {
-        "lat": 38.279136,
-        "lng": 31.92176
+        "lat": 38.2817239,
+        "lng": 31.91395
       }
     },
     {
@@ -17069,7 +17649,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.062097,
+        "lng": 31.890829
+      }
     },
     {
       "key": "cavundur-camii",
@@ -17160,7 +17744,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "haci-mehmetli-camii",
@@ -17225,7 +17813,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3368139,
+        "lng": 32.235008
+      }
     },
     {
       "key": "ibrahim-bey-carsi-camii",
@@ -17303,7 +17895,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "kabacali-camii",
@@ -17370,8 +17966,8 @@
         }
       ],
       "location": {
-        "lat": 38.236956,
-        "lng": 32.222488
+        "lat": 38.2369563,
+        "lng": 32.2224878
       }
     },
     {
@@ -17437,7 +18033,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.874565,
+        "lng": 32.5087661
+      }
     },
     {
       "key": "pinarbasi-camii",
@@ -17502,7 +18102,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7081388,
+        "lng": 33.5484092
+      }
     },
     {
       "key": "cetmi-camii",
@@ -17582,8 +18186,8 @@
         }
       ],
       "location": {
-        "lat": 37.711848,
-        "lng": 33.547765
+        "lat": 37.7118478,
+        "lng": 33.5477648
       }
     },
     {
@@ -17662,7 +18266,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.717335,
+        "lng": 33.547023
+      }
     },
     {
       "key": "yagmapinar-mescidi",
@@ -17740,7 +18348,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.83096099999999,
+        "lng": 33.721398
+      }
     },
     {
       "key": "kucuk-alioglu-camii",
@@ -17805,7 +18417,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "pir-huseyin-bey-yukari-camii",
@@ -17937,8 +18553,8 @@
         }
       ],
       "location": {
-        "lat": 38.268304,
-        "lng": 32.408642
+        "lat": 38.2672739,
+        "lng": 32.4079288
       }
     },
     {
@@ -18031,7 +18647,11 @@
             }
           ]
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.419697,
+        "lng": 31.8450911
+      }
     },
     {
       "key": "seyyid-harun-veli-camii",
@@ -18164,7 +18784,7 @@
       ],
       "location": {
         "lat": 37.41676,
-        "lng": 31.846541
+        "lng": 31.8465406
       }
     },
     {
@@ -18256,7 +18876,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "piribeyli-beldesi-merkez-camii",
@@ -18334,7 +18958,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.911628,
+        "lng": 31.636169
+      }
     },
     {
       "key": "beysehir-esrefoglu-suleyman-bey-camii",
@@ -18568,7 +19196,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6761341,
+        "lng": 31.736647
+      }
     },
     {
       "key": "beysehir-esrefoglu-suleyman-bey-turbesi",
@@ -18672,7 +19304,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6761341,
+        "lng": 31.736647
+      }
     },
     {
       "key": "beysehir-esrefoglu-suleyman-bey-hamami",
@@ -18763,7 +19399,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6761341,
+        "lng": 31.736647
+      }
     },
     {
       "key": "beysehir-esrefoglu-bedesteni",
@@ -18867,7 +19507,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6761341,
+        "lng": 31.736647
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-camii",
@@ -18997,7 +19641,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-kulliyesinde-imaret",
@@ -19101,7 +19749,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-kulliyesi-hamami",
@@ -19205,7 +19857,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-kulliyesi-cesmesi",
@@ -19283,7 +19939,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-kulliyesi-arastasi",
@@ -19335,7 +19995,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "karapinar-sultan-ii-selim-kulliyesi-han",
@@ -19465,7 +20129,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-kursunlu-camii",
@@ -19595,7 +20263,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-kervansarayi",
@@ -19699,7 +20371,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-imareti",
@@ -19764,7 +20440,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-arasta",
@@ -19855,7 +20535,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-tabhane",
@@ -19907,7 +20591,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "ilgin-lala-mustafa-pasa-kulliyesi-medrese-sibyan-mektebi",
@@ -19998,7 +20686,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.2804794,
+        "lng": 31.9165132
+      }
     },
     {
       "key": "sircali-medrese",
@@ -20156,8 +20848,8 @@
         }
       ],
       "location": {
-        "lat": 37.87005,
-        "lng": 32.494127
+        "lat": 37.8700498,
+        "lng": 32.4941267
       }
     },
     {
@@ -20249,7 +20941,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8749886,
+        "lng": 32.4928654
+      }
     },
     {
       "key": "karatay-medresesi",
@@ -20431,7 +21127,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8749886,
+        "lng": 32.4928654
+      }
     },
     {
       "key": "ali-efendi-darulhuffazi-muallimhane",
@@ -20548,7 +21248,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "ali-gav-zaviyesi-mahmudiye-medresesi",
@@ -20665,7 +21369,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8765543,
+        "lng": 32.4926652
+      }
     },
     {
       "key": "ince-minareli-medrese-sahip-ata-darulhadis",
@@ -20834,7 +21542,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8728716,
+        "lng": 32.4899749
+      }
     },
     {
       "key": "tas-halkali-sahip-ata-medrese",
@@ -20951,7 +21663,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.27637989999999,
+        "lng": 31.8733386
+      }
     },
     {
       "key": "ismail-aga-medresesi-tas-medrese",
@@ -21068,7 +21784,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6837023,
+        "lng": 31.71830589999999
+      }
     },
     {
       "key": "cemal-ali-dede-turut-turbesi",
@@ -21172,7 +21892,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8814294,
+        "lng": 32.4591647
+      }
     },
     {
       "key": "atesbaz-veli-kumbeti-ve-zaviyesi",
@@ -21250,7 +21974,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86,
+        "lng": 32.4505556
+      }
     },
     {
       "key": "tavus-baba-turbesi",
@@ -21330,8 +22058,8 @@
         }
       ],
       "location": {
-        "lat": 37.85233,
-        "lng": 32.419947
+        "lat": 37.8523297,
+        "lng": 32.4199474
       }
     },
     {
@@ -21449,7 +22177,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86951,
+        "lng": 32.48321900000001
+      }
     },
     {
       "key": "sahip-ata-hanikahi-ve-turbesi",
@@ -21685,7 +22417,11 @@
             }
           ]
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.852391,
+        "lng": 32.420179
+      }
     },
     {
       "key": "seyh-hasan-i-rumi-turbesi",
@@ -21750,7 +22486,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "seyh-osman-rumi-turbesi",
@@ -21802,7 +22542,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8687956,
+        "lng": 32.4932799
+      }
     },
     {
       "key": "emir-nurettin-sephevan-kumbeti",
@@ -21906,7 +22650,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8682651,
+        "lng": 32.4976619
+      }
     },
     {
       "key": "sadr-sedir-sultan-turbesi",
@@ -21984,7 +22732,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8821587,
+        "lng": 32.5213635
+      }
     },
     {
       "key": "seyh-aliman-alaman-isgalaman-yahsi-turbesi",
@@ -22075,7 +22827,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8797869,
+        "lng": 32.5217164
+      }
     },
     {
       "key": "arap-dede-turbesi",
@@ -22140,7 +22896,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8867439,
+        "lng": 32.5290339
+      }
     },
     {
       "key": "seyfettin-kara-sungur-kumbeti",
@@ -22218,7 +22978,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8733375,
+        "lng": 32.4984336
+      }
     },
     {
       "key": "ishak-pasa-turbesi",
@@ -22285,8 +23049,8 @@
         }
       ],
       "location": {
-        "lat": 37.873959,
-        "lng": 32.497691
+        "lat": 37.8739594,
+        "lng": 32.4976908
       }
     },
     {
@@ -22352,7 +23116,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8743423,
+        "lng": 32.499222
+      }
     },
     {
       "key": "burhaneddin-fakih-dede-turbesi",
@@ -22430,7 +23198,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8659579,
+        "lng": 32.5044275
+      }
     },
     {
       "key": "emir-ebu-ishak-kazeruni-tekkesi-turbesi",
@@ -22495,7 +23267,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8713477,
+        "lng": 32.4881475
+      }
     },
     {
       "key": "sut-tekkesi-ferhuniye-mescidi-ve-keykavus-kizi-turbesi",
@@ -22560,7 +23336,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8758233,
+        "lng": 32.49136300000001
+      }
     },
     {
       "key": "kalenderhane-kalender-baba-turbesi",
@@ -22679,8 +23459,8 @@
         }
       ],
       "location": {
-        "lat": 37.879366,
-        "lng": 32.494414
+        "lat": 37.87997,
+        "lng": 32.4949461
       }
     },
     {
@@ -22811,7 +23591,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8798435,
+        "lng": 32.4914733
+      }
     },
     {
       "key": "kesikbas-kumbeti",
@@ -22889,7 +23673,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.879957,
+        "lng": 32.494947
+      }
     },
     {
       "key": "ii-kilicarslan-kumbeti-kumbet-hane",
@@ -23032,7 +23820,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0160383,
+        "lng": 32.4920088
+      }
     },
     {
       "key": "i-izzettin-keykavus-yarim-anonim-kumbeti",
@@ -23110,7 +23902,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.86634,
+        "lng": 32.512219
+      }
     },
     {
       "key": "tacul-vezir-kumbeti",
@@ -23162,7 +23958,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8760462,
+        "lng": 32.489554
+      }
     },
     {
       "key": "emirgazi-emrullah-gazi-turbesi",
@@ -23214,7 +24014,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.904083,
+        "lng": 33.83614500000001
+      }
     },
     {
       "key": "mustafa-turabi-kazan-dede-turbesi",
@@ -23305,7 +24109,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3607082,
+        "lng": 31.4084084
+      }
     },
     {
       "key": "seyit-mahmut-hayrani-turbesi",
@@ -23435,7 +24243,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3554995,
+        "lng": 31.407877
+      }
     },
     {
       "key": "seyh-eyup-yagli-dede-turbesi",
@@ -23515,8 +24327,8 @@
         }
       ],
       "location": {
-        "lat": 38.352992,
-        "lng": 31.414847
+        "lat": 38.353022,
+        "lng": 31.4147711
       }
     },
     {
@@ -23608,7 +24420,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.360258,
+        "lng": 31.417991
+      }
     },
     {
       "key": "yarim-anonim-turbe",
@@ -23712,7 +24528,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.6828051,
+        "lng": 31.7188367
+      }
     },
     {
       "key": "yazlica-koyu-kuzucu-sultan-kumbeti",
@@ -23777,7 +24597,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.170368,
+        "lng": 31.757025
+      }
     },
     {
       "key": "halife-sultan-turbesi",
@@ -23972,7 +24796,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "sultan-hatun-turbesi",
@@ -24050,7 +24878,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "sahip-ata-sultan-hamami",
@@ -24117,8 +24949,8 @@
         }
       ],
       "location": {
-        "lat": 37.867367,
-        "lng": 32.494748
+        "lat": 37.8671852,
+        "lng": 32.4951532
       }
     },
     {
@@ -24173,8 +25005,8 @@
         }
       ],
       "location": {
-        "lat": 37.852755,
-        "lng": 32.421275
+        "lat": 37.9096116,
+        "lng": 32.48882
       }
     },
     {
@@ -24255,8 +25087,8 @@
         }
       ],
       "location": {
-        "lat": 37.872782,
-        "lng": 32.498175
+        "lat": 37.8731184,
+        "lng": 32.4952629
       }
     },
     {
@@ -24377,7 +25209,7 @@
       ],
       "location": {
         "lat": 38.358333,
-        "lng": 31.414796
+        "lng": 31.4147964
       }
     },
     {
@@ -24482,7 +25314,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0160383,
+        "lng": 32.4920088
+      }
     },
     {
       "key": "seyyit-harun-veli-hamami",
@@ -24573,7 +25409,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "hoca-fakih-cesmesi",
@@ -24625,7 +25465,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.87205540000001,
+        "lng": 32.4665509
+      }
     },
     {
       "key": "safaci-cesmesi",
@@ -24677,7 +25521,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8745242,
+        "lng": 32.49097040000001
+      }
     },
     {
       "key": "haci-veyis-cesmesi",
@@ -24729,7 +25577,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8705556,
+        "lng": 32.5108333
+      }
     },
     {
       "key": "bagevliya-camii-cesmesi",
@@ -24794,7 +25646,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8773452,
+        "lng": 32.5049797
+      }
     },
     {
       "key": "karakayis-sari-cami-cesmesi",
@@ -24859,7 +25715,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.882984,
+        "lng": 32.500373
+      }
     },
     {
       "key": "kucuk-ayasofya-mescidi-cesmesi",
@@ -24924,7 +25784,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.3596271,
+        "lng": 31.407649
+      }
     },
     {
       "key": "hocacihan-sarnici",
@@ -25002,7 +25866,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7219583,
+        "lng": 32.3316583
+      }
     },
     {
       "key": "deli-osman-hani",
@@ -25054,7 +25922,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7955389,
+        "lng": 32.4248181
+      }
     },
     {
       "key": "akyokus-hoca-cihan-hani",
@@ -25119,7 +25991,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8810587,
+        "lng": 32.4231011
+      }
     },
     {
       "key": "kiziloren-kurucesme-hani",
@@ -25223,7 +26099,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8968375,
+        "lng": 32.1645156
+      }
     },
     {
       "key": "emir-kandemir-hani",
@@ -25314,7 +26194,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.7430228,
+        "lng": 32.2653887
+      }
     },
     {
       "key": "inlice-han",
@@ -25379,7 +26263,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.709084,
+        "lng": 32.075183
+      }
     },
     {
       "key": "sukran-mescidi-zemin-kat-dukkan-ve-magaza",
@@ -25444,7 +26332,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.860848,
+        "lng": 32.4240067
+      }
     },
     {
       "key": "vakif-is-hani-vakiflar-bolge-mudurlugu-hizmet-binasi",
@@ -25496,7 +26388,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.87251029999999,
+        "lng": 32.4991681
+      }
     },
     {
       "key": "elikesik-han",
@@ -25589,8 +26485,8 @@
         }
       ],
       "location": {
-        "lat": 38.032924,
-        "lng": 32.122702
+        "lat": 38.0329239,
+        "lng": 32.1227019
       }
     },
     {
@@ -25669,7 +26565,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0594768,
+        "lng": 32.5203019
+      }
     },
     {
       "key": "zazadin-sadeddin-kopek-hani",
@@ -25760,7 +26660,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 38.0038121,
+        "lng": 32.6782426
+      }
     },
     {
       "key": "horozlu-ruzbe-han",
@@ -25840,8 +26744,8 @@
         }
       ],
       "location": {
-        "lat": 37.929945,
-        "lng": 32.527535
+        "lat": 37.8965799,
+        "lng": 32.493678
       }
     },
     {
@@ -25933,7 +26837,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8707144,
+        "lng": 32.5000128
+      }
     },
     {
       "key": "zalmanda-hani",
@@ -25985,7 +26893,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "zivarik-han",
@@ -26076,7 +26988,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.9169182,
+        "lng": 32.4622149
+      }
     },
     {
       "key": "cagalzade-bedesteni",
@@ -26141,7 +27057,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.512316,
+        "lng": 34.048806
+      }
     },
     {
       "key": "rustem-pasa-kervansarayi",
@@ -26219,7 +27139,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.5163583,
+        "lng": 34.0505778
+      }
     },
     {
       "key": "raziye-hatun-sultan-kervansarayi",
@@ -26284,7 +27208,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8746429,
+        "lng": 32.4931554
+      }
     },
     {
       "key": "kazan-hoyugu-koyu-tas-han",
@@ -26336,7 +27264,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.71532,
+        "lng": 33.54657
+      }
     },
     {
       "key": "yusuf-aga-abit-celebi-kutuphanesi",
@@ -26416,8 +27348,8 @@
         }
       ],
       "location": {
-        "lat": 37.870277,
-        "lng": 32.50388
+        "lat": 37.8232112,
+        "lng": 32.98883190000001
       }
     },
     {
@@ -26522,7 +27454,11 @@
           },
           "images": []
         }
-      ]
+      ],
+      "location": {
+        "lat": 37.8475533,
+        "lng": 32.47409
+      }
     }
   ]
 }

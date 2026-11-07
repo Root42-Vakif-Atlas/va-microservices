@@ -42,11 +42,12 @@
       "patternErrorMessage": "Sadece küçük harf (a-z), rakam ve tire; Türkçe karakter, büyük harf ve boşluk kullanılmaz, tire başta/sonda ya da art arda olmaz. Örnek: yesil-camii"
     },
     "cityCode": {
-      "description": "Şehir plaka kodu: 16 Bursa, 31 Hatay, 35 İzmir, 42 Konya, 43 Kütahya (pasif), 45 Manisa.",
+      "description": "Şehir plaka kodu: 16 Bursa, 31 Hatay, 34 İstanbul, 35 İzmir, 42 Konya, 43 Kütahya (pasif), 45 Manisa.",
       "type": "integer",
       "enum": [
         16,
         31,
+        34,
         35,
         42,
         43,

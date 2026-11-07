@@ -37,7 +37,10 @@ public static class Preconditions
             return ApiError.PreconditionFailed();
         }
 
-        return tags.Any(tag => tag.Equals(EntityTagHeaderValue.Any) || (!tag.IsWeak && tag.Tag.Value == currentETag))
+        // Weak tags are accepted when the opaque value matches: the server only ever issues strong tags, but a
+        // compressing proxy (Cloudflare, nginx gzip) rewrites them to W/"…" on the way out, and clients echo that
+        // back. Rejecting them made every write behind the CDN fail with 412.
+        return tags.Any(tag => tag.Equals(EntityTagHeaderValue.Any) || tag.Tag.Value == currentETag)
             ? null
             : ApiError.PreconditionFailed();
     }

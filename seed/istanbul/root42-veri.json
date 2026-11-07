@@ -1,0 +1,49 @@
+{
+  "$schema": "../root42-vakifatlas.schema.json",
+  "formatVersion": 1,
+  "complexes": [],
+  "works": [
+    {
+      "key": "sekerhan",
+      "cityCode": 34,
+      "address": "Hobyar Mah. Hoca Kasım Köprüsü Sk. No:4 (Fatih/İstanbul)",
+      "isActive": true,
+      "translations": {
+        "tr": {
+          "slug": "sekerhan",
+          "title": "Şekerhan",
+          "nickname": null,
+          "shortDescriptionTitle": null,
+          "shortDescription": "Fatih’in Hobyar Mahallesi’nde, Hoca Kasım Köprüsü Sokağı’nın başında yer alan dört katlı kâgir tarihî handır."
+        },
+        "en": {
+          "slug": "sekerhan",
+          "title": "Şekerhan",
+          "nickname": null,
+          "shortDescriptionTitle": null,
+          "shortDescription": "A four-storey historic masonry han at the head of Hoca Kasım Köprüsü Street in the Hobyar quarter of Fatih."
+        }
+      },
+      "images": [],
+      "parts": [
+        {
+          "translations": {
+            "tr": {
+              "title": "Şekerhan",
+              "description": "Şekerhan, Eminönü’nün ticaret dokusu içinde, Hoca Kasım Köprüsü Sokağı’nın başında yer alan dört katlı kâgir bir handır. Tescilli yapının kapalı alanı yaklaşık 2.639 metrekaredir."
+            },
+            "en": {
+              "title": "Şekerhan",
+              "description": "Şekerhan is a four-storey masonry han at the head of Hoca Kasım Köprüsü Street, within the commercial fabric of Eminönü. The registered building has an enclosed area of about 2,639 square metres."
+            }
+          },
+          "images": []
+        }
+      ],
+      "location": {
+        "lat": 41.01372,
+        "lng": 28.973522
+      }
+    }
+  ]
+}

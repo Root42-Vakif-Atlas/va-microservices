@@ -73,8 +73,10 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 
     policy.AllowAnyHeader()
         .WithMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
+        // ETag: the web admin client reads it for If-Match (optimistic concurrency); without it every detail
+        // load fails in the browser.
         .WithExposedHeaders(CorrelationIdMiddleware.Header, "Retry-After", "api-supported-versions",
-            "api-deprecated-versions", "Deprecation", "Sunset")
+            "api-deprecated-versions", "Deprecation", "Sunset", "ETag")
         .SetPreflightMaxAge(TimeSpan.FromHours(1));
 }));
 
